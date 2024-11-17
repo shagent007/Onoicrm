@@ -1,6 +1,6 @@
 import { inject, onMounted, ref, Ref, watch } from 'vue';
-import { getValue } from "../../services/helpers";
-import { IMessage, defaultMessage } from "../../models/IMessage";
+import { getValue } from '@/services/helpers';
+import { IMessage, defaultMessage } from '@/models/IMessage';
 import { Field } from "../models/Field";
 import { FieldAttribute } from "../models/FieldAttribute";
 import { FieldConfig } from "../models/FieldConfig";

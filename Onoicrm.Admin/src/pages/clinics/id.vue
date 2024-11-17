@@ -21,7 +21,7 @@
 </template>
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import DataItem from '../../components/data/item.vue';
+import DataItem from '@/components/data/item.vue';
 import { StringField } from '@/app-form/editors/string/models/StringField';
 import { InputFieldAttribute } from '@/app-form/models/InputFieldAttribute';
 import { Clinic } from '@/entities/Clinic';
@@ -30,7 +30,7 @@ import { required } from '@/services/consts';
 import { useObjectDataSource } from '@/hooks/useObjectDataSource';
 import { ObjectDataSourceConfig } from '@/models/ObjectDataSourceConfig';
 import { computed, onMounted } from 'vue';
-import AppMenu from '../../layouts/components/AppMenu.vue';
+import AppMenu from '@/layouts/components/AppMenu.vue';
 import { DateField } from '@/app-form/editors/date/models/DateField';
 import { DateFieldAttribute } from '@/app-form/editors/date/models/DateFieldAttribute';
 import moment from 'moment';
