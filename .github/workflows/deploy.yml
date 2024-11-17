@@ -97,8 +97,11 @@ jobs:
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.SSH_KEY }}
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          known_hosts: unnecessary
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H onoi-crm.com >> ~/.ssh/known_hosts
           
       - name: Copy configs
         run: rsync -a ./Deploy/ root@onoi-crm.com:/app/infrastructure
