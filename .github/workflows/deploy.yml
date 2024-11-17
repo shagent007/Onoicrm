@@ -17,7 +17,7 @@ jobs:
           known_hosts: unnecessary
 
       - name: Adding Known Hosts
-        run: ssh-keyscan -H onoi-crm.com >> ~/.ssh/known_hosts
+        run: ssh-keyscan -H onoicrm.com >> ~/.ssh/known_hosts
 
       - name: Make fake package-lock for install node
         run: touch package-lock.json
@@ -33,7 +33,7 @@ jobs:
       - name: Copy front to remote
         run: |
           cd ./Onoicrm.Front
-          rsync -a --delete ./dist/ root@onoi-crm.com:/app/www/front
+          rsync -a --delete ./dist/ root@onoicrm.com:/app/www/front
   
 
   admin:
@@ -48,7 +48,7 @@ jobs:
           known_hosts: unnecessary
 
       - name: Adding Known Hosts
-        run: ssh-keyscan -H onoi-crm.com >> ~/.ssh/known_hosts
+        run: ssh-keyscan -H onoicrm.com >> ~/.ssh/known_hosts
 
       - name: Make fake package-lock for install node
         run: touch package-lock.json
@@ -62,7 +62,7 @@ jobs:
       - name: Copy admin to remote
         run: |
           cd ./Onoicrm.Admin
-          rsync -a --delete ./dist/ root@onoi-crm.com:/app/www/admin
+          rsync -a --delete ./dist/ root@onoicrm.com:/app/www/admin
 
   api:
     runs-on: ubuntu-latest
@@ -76,7 +76,7 @@ jobs:
           known_hosts: unnecessary
 
       - name: Adding Known Hosts
-        run: ssh-keyscan -H onoi-crm.com >> ~/.ssh/known_hosts
+        run: ssh-keyscan -H onoicrm.com >> ~/.ssh/known_hosts
 
       - name: Setup dotnet "7.0.x"
         uses: actions/setup-dotnet@v3
@@ -87,7 +87,7 @@ jobs:
         run: dotnet restore "Onoicrm.Api/Onoicrm.Api.csproj" && dotnet build "Onoicrm.Api/Onoicrm.Api.csproj" -c Release -o ./build && dotnet publish "Onoicrm.Api/Onoicrm.Api.csproj" -c Release -o ./publish
 
       - name: Copy code
-        run: rsync -a --delete ./publish/ root@onoi-crm.com:/app/www/api
+        run: rsync -a --delete ./publish/ root@onoicrm.com:/app/www/api
 
   infrastructure:
     runs-on: ubuntu-latest
@@ -101,9 +101,9 @@ jobs:
           known_hosts: unnecessary
 
       - name: Adding Known Hosts
-        run: ssh-keyscan -H onoi-crm.com >> ~/.ssh/known_hosts
+        run: ssh-keyscan -H onoicrm.com >> ~/.ssh/known_hosts
           
       - name: Copy configs
-        run: rsync -a ./Deploy/ root@onoi-crm.com:/app/infrastructure
+        run: rsync -a ./Deploy/ root@onoicrm.com:/app/infrastructure
       - name: restart infrastructure
-        run: ssh root@onoi-crm.com "cd /app/infrastructure && docker compose down && docker compose up -d"
+        run: ssh root@onoicrm.com "cd /app/infrastructure && docker compose down && docker compose up -d"
