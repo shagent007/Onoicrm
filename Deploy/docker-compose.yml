@@ -32,7 +32,7 @@ services:
       - /app/database/pgadmin/:/var/lib/pgadmin
   
   cms-api:
-    image: mcr.microsoft.com/dotnet/aspnet:8.0
+    image: mcr.microsoft.com/dotnet/aspnet:7.0
     working_dir: /var/www
     container_name: cms-api
     volumes:
