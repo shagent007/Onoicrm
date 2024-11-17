@@ -19,7 +19,7 @@ import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { StringField } from '@/app-form/editors/string/models/StringField';
 import { InputFieldAttribute } from '@/app-form/models/InputFieldAttribute';
-import DataList from '../../components/data/list.vue';
+import DataList from '@/components/data/list.vue';
 import { Clinic } from '@/entities/Clinic';
 import { useListDataSource } from '@/hooks/useListDataSource';
 import { EditorDialogConfig } from '@/models/EditorDialogConfig';
@@ -30,9 +30,9 @@ import { DateFieldAttribute } from '@/app-form/editors/date/models/DateFieldAttr
 import { DateField } from '@/app-form/editors/date/models/DateField';
 import moment from "moment"
 import { TreeDataSourceConfig, useTreeDataSource } from '@/hooks/useTreeDataSource';
-import { TreeSelectField } from '@/app-form/editors/tree-select/models/TreeSelectField';
 import { MaskField } from '@/app-form/editors/mask/models/MaskField';
 import { MaskFieldConfig } from '@/app-form/editors/mask/models/MaskFieldConfig';
+
 const dataSource = useListDataSource(new ListConfig({ className: 'clinic' }));
 const groupDataSource = useTreeDataSource( new TreeDataSourceConfig({ className:"groupUserProfile" }));
 const loaded = ref<boolean>(false);
