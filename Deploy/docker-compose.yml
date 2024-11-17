@@ -39,7 +39,6 @@ services:
       - /app/www/api/:/var/www 
       - /app/database/images/:/var/lib/data/images 
       - /app/database/files/:/var/lib/data/files 
-      - /app/infrastructure/core/appsettings.json/:/var/www/appsettings.json 
     expose:
       - 4000
     environment:
