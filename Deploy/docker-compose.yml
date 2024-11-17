@@ -45,7 +45,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:4000;
       - TZ=Europe/Moscow
-    command: ["dotnet", "/var/www/Cms.Api.dll"]
+    command: ["dotnet", "/var/www/Onoicrm.Api.dll"]
     restart: unless-stopped
     
   nginx:
