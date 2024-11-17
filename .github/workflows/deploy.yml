@@ -33,7 +33,7 @@ jobs:
       - name: Copy front to remote
         run: |
           cd ./Onoicrm.Front
-          rsync -a --delete ./dist/ root@$onoi-crm.com:/app/www/front
+          rsync -a --delete ./dist/ root@onoi-crm.com:/app/www/front
   
 
   admin:
@@ -62,7 +62,7 @@ jobs:
       - name: Copy admin to remote
         run: |
           cd ./Onoicrm.Admin
-          rsync -a --delete ./dist/ root@$onoi-crm.com:/app/www/admin
+          rsync -a --delete ./dist/ root@onoi-crm.com:/app/www/admin
 
   api:
     runs-on: ubuntu-latest
@@ -87,7 +87,7 @@ jobs:
         run: dotnet restore "Onoicrm.Api/Onoicrm.Api.csproj" && dotnet build "Onoicrm.Api/Onoicrm.Api.csproj" -c Release -o ./build && dotnet publish "Onoicrm.Api/Onoicrm.Api.csproj" -c Release -o ./publish
 
       - name: Copy code
-        run: rsync -a --delete ./publish/ root@$onoi-crm.com:/app/www/api
+        run: rsync -a --delete ./publish/ root@onoi-crm.com:/app/www/api
 
   infrastructure:
     runs-on: ubuntu-latest
