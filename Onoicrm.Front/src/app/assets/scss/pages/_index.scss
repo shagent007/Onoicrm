@@ -1,0 +1,19 @@
+.categories{
+  display:flex;
+  .card{
+    height:90px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .categories{
+    display:flex;
+    flex-direction:column;
+
+    .card{
+      height:70px;
+      border-radius:5px;
+      width:260px;
+    }
+  }
+}

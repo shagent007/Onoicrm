@@ -1,0 +1,115 @@
+.time-slot{
+  padding: .5rem;
+  &--active{
+    background: #FF9F9F;
+  }
+
+  &--top-rounded{
+    border-top-left-radius:11px;
+    border-top-right-radius:11px;
+  }
+
+  &--bottom-rounded{
+    border-bottom-left-radius:11px;
+    border-bottom-right-radius:11px;
+  }
+
+
+  &__box{
+    background: #FFFFFF;
+    border: 1px solid #CDD9E9;
+    border-radius: 10px;
+    padding:10px;
+    height:170px;
+  }
+  &__time{
+    background: #C7DDFA;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #283150;
+    padding:2px 4px;
+    width:fit-content;
+    margin-bottom: 15px;
+  }
+  &__doctor{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 14px;
+    letter-spacing: -0.025em;
+    color: #407FD2;
+    margin-bottom: 7px;
+  }
+  &__phone{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.01em;
+    color: #283150;
+  }
+  &__user{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+    letter-spacing: -0.01em;
+    color: #283150;
+  }
+}
+
+.times{
+  height:200px;
+  width:100%;
+  overflow-x:hidden;
+  overflow-y:auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+
+    background-color: #E7E7E7;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #7AB3FE;
+    border-radius: 5px;
+  }
+  .time-slot{
+    cursor:pointer;
+    background: #F2F7FD;
+    border: 2px solid #646F95;
+    border-radius: 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:6px 10px;
+    margin-bottom: 16px;
+    white-space:nowrap;
+    text-align:center;
+  }
+  .time-slot:not(.time-slot--active,.time-slot--doctor-occupied,.time-slot--chair-occupied):hover{
+    background: darken(#F2F7FD, 10%);
+  }
+  .time-slot--active{
+    background: #1479ff;
+    color:#fff;
+    border-color: #1479ff !important;
+  }
+  .time-slot--doctor-occupied{
+    background: #FF6363;
+    color:#fff;
+    border-color: #932121 !important;
+    pointer-events:none;
+  }
+  .time-slot--chair-occupied{
+    background: #F2F7FD;
+    color:#DBDCDD;
+    border-color: #DBDCDD !important;
+    pointer-events:none;
+  }
+}

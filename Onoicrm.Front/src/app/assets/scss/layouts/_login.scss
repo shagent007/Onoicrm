@@ -1,0 +1,226 @@
+.login-container{
+  width: 1100px;
+  margin: 0 auto;
+}
+
+
+.login{
+  background-color: #F5F6F8;
+  padding: 0 25px;
+
+  .login__box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 45px 0 30px 0;
+    .login__subtitle{
+      color: #000;
+      font-family: $fontGilroy;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      margin-left: 20px;
+    }
+    .buttons{
+      display: flex;
+      gap: 10px;
+
+      .btn-login{
+        color: white;
+        font-family: $fontGilroy;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        border-radius: 10px;
+        &--gray{
+          color: #7E92A2;
+        }
+      }
+    }
+  }
+  .login__body{
+    padding-bottom: 20px;
+    .login-main-box{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 50px;
+      .login-title{
+        color: #000;
+        font-family: $fontGilroy;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 84.125px;
+      }
+      .login-description{
+        color: #7E92A2;
+        font-family: $fontGilroy;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 25px;
+        margin: 20px 0 50px;
+        a{
+          text-decoration: none;
+          span{
+            color: blue;
+          }
+        }
+
+      }
+      .login-social{
+        .login-social__subtitle{
+          color: #526477;
+          font-family: $fontGilroy;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 25px;
+          margin-bottom: 10px;
+        }
+        a{
+          color: #000;
+          font-family: $fontGilroy;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 27.5px;
+          margin-right: 40px;
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+      .login-home{
+        padding-right: 250px;
+        .p-inputtext{
+          border-radius: 10px;
+          border: 1px solid #7E92A2 ;
+          background: #FFF;
+          padding: 9px 30px;
+          margin-bottom: 5px;
+
+          color: #526477;
+          font-family: $fontGilroy;
+          font-size: 18px;
+          font-weight: 500;
+          &::placeholder{
+            color: #526477 !important;
+            font-family: $fontGilroy;
+            font-size: 18px;
+            font-weight: 500;
+          }
+        }
+        .p-password{
+          margin-bottom: 5px;
+        }
+        .p-input-icon-right > svg{
+          right: 15px;
+         }
+        .p-button{
+          border-radius: 10px;
+          background: var(--primary-blue, #1479FF);
+          padding: 10px 15px;
+          text-align: left;
+          font-size: 18px;
+          font-weight: 500;
+          font-family: $fontGilroy;
+        }
+      }
+    }
+    .login-aside-box{
+      padding-left: 70px;
+      .login-aside-image{
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 37px
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .login .login__box .buttons{
+    display: none;
+  }
+  .login .login__body .login-main-box .login-home{
+    padding-right: 100px;
+  }
+  .login .login__body .login-main-box .login-title{
+    font-size: 40px;
+    line-height: 45px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .login{
+    padding: 0 20px;
+  }
+  .login .login__box{
+    padding-top: 30px;
+  }
+  .login .login__body .login-main-box .login-home{
+    padding-right: 50px;
+  }
+  .login .login__body .login-main-box .login-social div {
+    display: flex;
+    justify-content: space-between;
+    a{
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 27.5px;
+      margin-right: 10px;
+    }
+  }
+  .login .login__body .login-main-box .login-title{
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 38px;
+  }
+  .login .login__body .login-main-box .login-description{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .login .login__box svg{
+    width: 29.87px;
+    height: 32.01px
+  }
+  .login .login__box .login__subtitle{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .login .login__body .login-main-box .login-home{
+    padding-right: 0;
+  }
+  .login .login__body .login-main-box .login-title{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+  .login .login__body .login-main-box .login-description{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
+  .login .login__body .login-main-box .login-social .login-social__subtitle{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+  .login .login__body .login-main-box .login-social div a{
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 27.5px;
+      margin-right: 10px;
+  }
+}

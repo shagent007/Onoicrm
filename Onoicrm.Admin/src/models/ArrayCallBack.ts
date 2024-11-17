@@ -1,0 +1,1 @@
+export type ArrayCallBack = (value: any, index: number, array: any[]) => boolean

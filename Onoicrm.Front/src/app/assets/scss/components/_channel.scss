@@ -1,0 +1,50 @@
+.channel{
+  &__card{
+    border-radius: 5px;
+    background: var(--primary-fon, #F5F6F8);
+    padding:10px;
+    max-width:200px;
+  }
+
+  &__caption{
+    color: #000;
+    margin-bottom: .5rem;
+    font-family: Gilroy, Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14.5px; /* 103.571% */
+  }
+}
+.channel-item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width:100%;
+
+  &__caption{
+    color: #000;
+    font-family: Gilroy, system-ui, Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    width:40px;
+    line-height: 18.5px; /* 154.167% */
+  }
+
+  .p-inputwrapper{
+    width: calc(100% - 40px )
+  }
+
+  .p-inputtext{
+    border-radius: 3px;
+    border: 1px solid var(--grey-70, #7E92A2);
+    background: var(--primary-fon, #F5F6F8);
+    padding:0.3rem;
+    width:100%;
+    font-size:14px;
+  }
+}
+.channel__card .channel-item:last-child{
+  margin-bottom: 0;
+}

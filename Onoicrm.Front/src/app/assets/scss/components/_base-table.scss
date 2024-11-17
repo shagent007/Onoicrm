@@ -1,0 +1,209 @@
+@import "../abstract/vars";
+
+.p-datatable-wrapper {
+  padding-right: 10px !important;
+}
+.base-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+
+  th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 16.75px;
+    line-height: 14px;
+    letter-spacing: -0.025em;
+    color: #abc3e1;
+    padding: 10px 25px;
+  }
+
+  tbody {
+    tr {
+      height: 50px;
+      background-color: #fff;
+      //box-shadow: 0px 4px 16px rgba(199, 217, 241, 0.7);
+      transition: 0.6s;
+    }
+    td:first-child,
+    th:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+    td:last-child,
+    th:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    td {
+      padding: 10px 25px;
+    }
+  }
+}
+
+//@media screen and (max-width: 600px) {
+//
+//  table tbody tr {
+//    height: auto !important;
+//  }
+//  tr td:first-child,
+//  th:first-child {
+//    border-top-left-radius: 0px !important;
+//    border-bottom-left-radius: 0px !important;
+//  }
+//
+//  tr td:last-child,
+//  th:last-child {
+//    border-top-right-radius: 0px !important;
+//    border-bottom-right-radius: 0px !important;
+//  }
+//
+//  table thead {
+//    border: none;
+//    clip: rect(0 0 0 0);
+//    height: 1px;
+//    margin: -1px;
+//    overflow: hidden;
+//    padding: 0;
+//    position: absolute;
+//    width: 1px;
+//  }
+//
+//  table tr {
+//    display: block;
+//    margin-bottom: 0.625em;
+//  }
+//
+//  table td {
+//    border-bottom: 1px solid #ddd;
+//    display: block;
+//    font-size: 0.8em;
+//    text-align: right;
+//  }
+//
+//  table td::before {
+//    content: attr(data-label);
+//    float: left;
+//    font-weight: bold;
+//    text-transform: uppercase;
+//  }
+//
+//  table td:last-child {
+//    border-bottom: 0;
+//  }
+//}
+
+.transparent-table-header {
+  .p-datatable .p-datatable-thead > tr > th {
+    color: #abc3e1;
+    background-color: transparent !important;
+  }
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  border: none;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  text-align: left;
+  padding: 1rem 1rem;
+  border: 1px solid #7e92a2;
+  border-width: 0 0 1px 0;
+  background: transparent;
+  transition: box-shadow 0.2s;
+  color: #000;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+}
+
+.p-datatable .p-datatable-tbody > tr {
+  background: transparent;
+}
+
+.p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-datatable-table
+  > .p-datatable-thead,
+.p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-datatable-table
+  > .p-datatable-tfoot,
+.p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-virtualscroller
+  > .p-datatable-table
+  > .p-datatable-thead,
+.p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-virtualscroller
+  > .p-datatable-table
+  > .p-datatable-tfoot {
+  background-color: #fff;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-header {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.compact-input .p-inputtext {
+  padding: 0.2rem 0 0.2rem 0.5rem;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td,
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  padding: 0.3rem;
+
+  font-family: Gilroy, system-ui, Arial, sans-serif;
+  font-weight: medium;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  color: #526477;
+  padding: 10px 10px;
+  .p-column-title {
+    font-family: $fontGilroy;
+  }
+}
+.p-datatable .p-datatable-tbody > tr {
+  td:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+  td:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+  &:hover {
+    td {
+      background: #f5f6f8;
+    }
+
+    td:first-child {
+      border-radius: 5px 0 0 5px !important;
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.p-datatable .p-datatable-tbody > tr > td {
+  color: #000;
+  padding: 10px;
+  font-variant: tabular-nums;
+  font-family: $fontGilroy;
+  font-weight: 500;
+}
+.p-datatable .p-datatable-thead tr th:first-child,
+.p-datatable-tbody > tr > td:nth-child(2) {
+  font-family: "SF Pro Display";
+  font-weight: 500;
+}
+
+.no-scroll-table{
+  .p-datatable-wrapper{
+    overflow:hidden !important;
+  }
+}

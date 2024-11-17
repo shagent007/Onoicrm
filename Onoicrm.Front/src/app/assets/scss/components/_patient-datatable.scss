@@ -1,0 +1,536 @@
+.card--default-light-blue {
+  background: #d6edfc;
+}
+.payment-history.p-datatable .p-datatable-thead > tr > th {
+  background: none;
+}
+.text--grey-blue {
+  color: #8493b9;
+}
+.payment-history.p-datatable .p-datatable-thead > tr > th {
+  text-align: left;
+  padding: 0;
+  border: none;
+  border-width: 0;
+}
+.payment-history.p-datatable .p-datatable-tbody > tr {
+  display: flex;
+  justify-content: space-between;
+  background: none;
+}
+
+.payment-history.p-datatable .p-datatable-tbody > tr {
+  border: solid #a6cbff;
+  border-width: 0 0 1px 0;
+  padding-bottom: 2px !important;
+  padding-top: 10px;
+}
+
+.payment-history.p-datatable .p-datatable-tbody > tr > td {
+  padding: 0;
+}
+
+.payment-history.p-datatable-scrollable > .p-datatable-wrapper {
+  padding-right: 10px;
+}
+.payment-history.p-datatable .p-datatable-header {
+  background: transparent;
+  border: none;
+  padding: 0;
+  padding-bottom: 10px;
+}
+.payment-history.p-datatable-scrollable
+  > .p-datatable-wrapper::-webkit-scrollbar-thumb {
+  background-color: #8e9bda;
+  border-radius: 9px;
+  cursor: pointer !important;
+  width: 8px;
+}
+.payment-history.p-datatable-scrollable
+  > .p-datatable-wrapper::-webkit-scrollbar {
+  border-radius: 9px;
+  background-color: #b0c7e2;
+  width: 4px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #8e9bda;
+  border-radius: 9px;
+  cursor: pointer !important;
+  width: 8px;
+}
+.scrollbar::-webkit-scrollbar {
+  border-radius: 9px;
+  background-color: #b0c7e2;
+  width: 4px;
+}
+.payment-history.p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-datatable-table
+  > .p-datatable-thead,
+.p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-datatable-table
+  > .p-datatable-tfoot,
+.p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-virtualscroller
+  > .p-datatable-table
+  > .p-datatable-thead,
+.p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-virtualscroller
+  > .p-datatable-table
+  > .p-datatable-tfoot {
+  background: #d6edfc;
+}
+.payment-history.p-datatable .p-datatable-tbody > tr:focus {
+  outline: none;
+}
+.payment-history.p-datatable .p-datatable-tbody > tr > td input {
+  color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  text-align: right;
+  font-style: normal;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: normal;
+  outline: none;
+  border: none;
+  height: fit-content;
+  display: flex;
+  align-items: flex-end;
+  background-color: transparent;
+}
+
+.payment-history.p-datatable .p-datatable-tbody > tr > td {
+  display: flex;
+  align-items: flex-end;
+}
+.repayment .p-button.p-button-icon-only {
+  width: 3rem !important;
+}
+.discount {
+  padding: 13px;
+}
+////////////////////////////////////////////////
+.indent-tree {
+  height: 100%;
+  .p-tree{
+    border-radius: 5px;
+  }
+  .p-tree-wrapper {
+    padding: 15px 10px;
+    .p-treenode-label {
+      padding: 3px;
+    }
+    .p-treenode-children {
+      padding: 0 0 0 2rem;
+    }
+  }
+}
+.indent-table {
+  font-family: $fontGilroy;
+  padding: 15px 24px;
+  border-radius: 10px;
+  .p-column-header-content span svg {
+    color: #526477 !important;
+  }
+  .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-thead tr {
+    padding: 0 10px !important;
+    background-color: #fff;
+  }
+  .p-datatable .p-sortable-column:not(.p-highlight),
+  .p-datatable .p-sortable-column.p-highlight {
+    background: transparent;
+    outline: none;
+    &:hover {
+      background: transparent;
+      color: #526477;
+    }
+    &:focus {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #7e92a2 !important;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+  .p-datatable .p-datatable-thead > tr > th {
+    color: #526477;
+    padding: 10px 10px;
+    .p-column-title {
+      color: #000;
+      font-family: $fontGilroy;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 14.5px;
+    }
+  }
+  .p-datatable .p-datatable-tbody > tr {
+    td:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+    td:last-child {
+      border-radius: 0 5px 5px 0;
+    }
+    &:hover {
+      td {
+        background: #f5f6f8;
+      }
+
+      td:first-child {
+        border-radius: 5px 0 0 5px !important;
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  .p-datatable .p-datatable-tbody > tr > td {
+    color: #000;
+    padding: 10px;
+    font-variant: tabular-nums;
+    font-family: $fontGilroy;
+    font-weight: 500;
+  }
+  .p-datatable .p-datatable-thead tr th:first-child,
+  .p-datatable-tbody > tr > td:nth-child(2) {
+    font-family: "SF Pro Display";
+    font-weight: 500;
+  }
+  .btn-table {
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    color: #7e92a2;
+    border: 1px solid #7e92a2;
+    border-radius: 5px;
+    box-shadow: none;
+    &:hover {
+      color: #7e92a2 !important;
+      background-color: #f2f7fd;
+    }
+  }
+}
+.p-paginator{
+  border-radius: 10px !important;
+}
+
+.indent-table--small-text .p-datatable .p-datatable-thead > tr > th .p-column-title{
+  font-size: 14px;
+}
+.p-tabview-panels{
+  background: transparent !important;
+}
+.tab-patient-id {
+
+  height: 100%;
+  background: transparent !important;
+
+  .p-tabview-nav-container {
+    margin: 10px 0;
+    .p-tabview-nav-content {
+      border-radius: 10px;
+      padding: 5px 0;
+      margin-bottom: 8px;
+      .p-tabview-nav {
+        background: transparent;
+        border: none;
+        gap: 10px;
+        li .p-tabview-nav-link {
+          background: transparent;
+          border-radius: 10px;
+          border: none;
+          padding: 7px 10px;
+          transition: 0.2s;
+          &:focus {
+            box-shadow: none;
+          }
+          &:hover {
+            background: #1479ff;
+          }
+        }
+        .p-tabview-nav-link:hover .p-tabview-title,
+        .p-tabview-nav-link:focus .p-tabview-title {
+          color: white;
+        }
+        li .p-tabview-title {
+          color: #7e92a2;
+          font-family: $fontGilroy;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .p-tabview-panels {
+    border-radius: 5px;
+    padding: 0;
+  }
+  .tab-panel-header {
+    padding: 20px 20px 15px;
+    border-radius: 5px;
+    h4 {
+      color: #092c4c;
+      font-family: $fontGilroy;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+
+  }
+  .tab-panel-body {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    border-radius: 5px;
+    h4 {
+      font-family: $fontGilroy;
+      color: #092c4c;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+  .edit-modal {
+    border-radius: 5px;
+    border: 1px solid #1479ff;
+    background: #f5f6f8;
+    padding: 5px;
+    &-mobile{
+      position: fixed;
+      bottom: 130px;
+      right: 0;
+    }
+  }
+  .clean-table td {
+    padding-bottom: 15px;
+    color: #092c4c;
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    b,
+    h4 {
+      color: #526477 !important;
+      font-family: $fontGilroy;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+    }
+  }
+  .tab-patient-date{
+    color: #7E92A2;
+    padding: 5px 10px;
+    background-color: transparent;
+    border-radius: 10px;
+    cursor:pointer;
+    &--active{
+      color: #fff;
+      background-color: #1479ff;
+    }
+
+  }
+}
+.p-buttonset {
+  display: flex;
+  gap: 10px;
+  .p-button {
+    border-radius: 10px;
+    background: white;
+    border: none;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    color: #7e92a2;
+    transition: 0.1s;
+    &:hover {
+      background: #1479ff;
+      color: white;
+    }
+    &:focus {
+      color: white;
+      background: #1479ff;
+    }
+    .p-button-label {
+      font-family: $fontGilroy;
+    }
+  }
+}
+.tab-patient-id--payment {
+  height: 100%;
+  background: none;
+}
+
+.card--aside {
+  margin-top: 59px;
+}
+.editor-patients {
+  position: relative;
+  border-radius: 5px;
+  background: #f5f6f8;
+  .p-dialog-header {
+    background: #f5f6f8;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    h4 {
+      color: #000;
+      font-family: $fontGilroy;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+
+  .p-dialog-content {
+    border-radius: 5px;
+    padding-top: 0;
+    background: #f5f6f8;
+    .field {
+      margin-bottom: 0;
+      label {
+        color: #7e92a2;
+        font-family: $fontGilroy;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+      }
+    }
+    .p-inputtext {
+      width: 100%;
+      border: 1px solid #7e92a2;
+      border-radius: 5px;
+      span {
+        font-family: $fontGilroy;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18.5px;
+      }
+    }
+  }
+
+  .p-dialog-footer {
+    background: #f5f6f8;
+    .close span {
+      color: #7e92a2 !important;
+    }
+    .save span {
+      color: #ffffff;
+    }
+  }
+}
+
+.tab-attn {
+  margin-top: 15px;
+  list-style: none;
+  p {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    span {
+      color: #526477;
+      font-family: $fontGilroy;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      margin-left: 15px;
+    }
+  }
+}
+.table-attn {
+  .p-datatable .p-datatable-tbody > tr > td:last-child {
+    text-align: left;
+  }
+  .p-datatable.p-datatable-scrollable
+    > .p-datatable-wrapper
+    > .p-datatable-table
+    > .p-datatable-thead {
+    background: #f5f6f8;
+  }
+  .p-datatable .p-datatable-thead > tr > th {
+    padding: 0 10px 10px 0;
+  }
+  .p-datatable .p-datatable-tbody > tr > td {
+    padding-left: 0;
+  }
+  .p-checkbox .p-checkbox-box {
+    box-shadow: none;
+    border-radius: 5px;
+    border: 1px solid #b5b5b5;
+    outline: none;
+    color: red;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box {
+    &:hover {
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.p-datatable-wrapper{
+  overflow-x: hidden !important;
+}
+
+// tablet
+
+.tablet-patient-table{
+  font-family: "Gilroy", sans-serif;
+  .p-datatable-thead tr{
+    background-color: #e8f2ff !important;
+  }
+  .p-sortable-column.p-highlight, .p-sortable-column.p-highlight:hover{
+    background-color: transparent;
+  }
+  td{
+    font-size: 14px;
+  }
+}
+
+// mobile
+
+.mobile-card-caption{
+  color: #000;
+  font-family: $fontGilroy;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17.5px;
+
+}
+
+.mobile-card-description{
+  color: #526477;
+  font-family: Gilroy;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18.5px;
+  text-align: left;
+
+}
+
+
+@media screen and (max-width: 576px) {
+  .indent-table .btn-table{
+    width: 20px;
+    height: 20px;
+  }
+
+  .indent-tree{
+    .p-tree-wrapper .p-treenode-children{
+      padding-left: 10px ;
+    }
+  }
+}

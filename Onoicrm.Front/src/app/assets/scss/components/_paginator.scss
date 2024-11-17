@@ -1,0 +1,16 @@
+.p-paginator{
+  border-radius: 10px !important;
+}
+.datatable-paginator{
+  right: 0 !important;
+  width: 100% !important;
+
+  @media screen and (max-width: 992px){
+      bottom: 0px !important;
+    width: 100% !important;
+    position: fixed !important;
+    .p-paginator.p-component.p-paginator-1300px{
+      width: 100% !important;
+    }
+  }
+}

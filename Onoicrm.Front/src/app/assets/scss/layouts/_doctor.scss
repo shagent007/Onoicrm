@@ -1,0 +1,28 @@
+@import "../abstract/vars";
+.doctor {
+  width:100%;
+  padding: 70px;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  min-height: 100%;
+
+  main{
+    flex-grow: 1;
+  }
+  &__role {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.025em;
+  }
+
+  .bg-primary {
+    background-color: #c0d8f6 !important;
+    color: $colorBlack !important;
+  }
+  &-message {
+    background-color: #6aa4ea;
+    color: black;
+  }
+}

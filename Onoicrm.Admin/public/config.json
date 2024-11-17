@@ -1,0 +1,34 @@
+{
+    "navigation": [
+        {
+            "label": "Система управления",
+            "items": [
+                {
+                    "label": "Пользователи",
+                    "icon": "pi pi-fw pi-users",
+                    "to": "/user-profiles"
+                },
+                {
+                    "label": "Клиники",
+                    "icon": "pi pi-fw pi-building",
+                    "to": "/clinics"
+                },
+                {
+                    "label": "Симптомы",
+                    "icon": "pi pi-fw pi-check-square",
+                    "to": "/symptoms"
+                },
+                {
+                    "label": "Зубы",
+                    "icon": "fas fa-tooth pl-1 pr-1",
+                    "to": "/teeth"
+                },
+                {
+                    "label": "Причины отмены",
+                    "icon": "fas fa-tooth pl-1 pr-1",
+                    "to": "/cancellation-reason"
+                }
+            ]
+        }
+    ]
+}

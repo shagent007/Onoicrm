@@ -1,0 +1,29 @@
+.p-toast.p-toast-top-right {
+    z-index: 1000;
+    top: 7rem;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #116da6 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 3px;
+    padding-top: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba($color: #fff, $alpha: 0);
+    margin: 1rem 0rem;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #116da6;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 0px solid rgba($color: #fff, $alpha: 0);
+}

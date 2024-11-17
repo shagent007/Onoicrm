@@ -1,0 +1,99 @@
+.booking-report-dialog{
+
+  .p-tabview-panels{
+    .card{
+      margin-top: 0 !important;
+    }
+  }
+  .tab-buttons{
+    gap: 10px;
+    .p-button{
+      color: var(--grey-70, #7E92A2);
+      font-family: $fontGilroy;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      background: transparent;
+      border: none;
+      border-radius: 10px;
+      padding: 5px 10px;
+        &:hover{
+          color: var(--grey-70, #7E92A2);
+          background: white;
+        }
+      &:focus{
+        box-shadow: none;
+        border: none;
+      }
+    }
+    .active{
+      border-radius: 9px;
+      background: var(--primary-blue, #1479FF);
+      color: var(--grey-white, #FFF);
+      font-family: $fontGilroy;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      border: none;
+      &:hover{
+        background: var(--primary-blue, #0f69e1);
+        color: var(--grey-white, #FFF);
+      }
+    }
+  }
+  .p-dialog-header,
+  .p-dialog-content,
+  .p-dialog-footer{
+    background: #F5F6F8;
+    padding: 1rem;
+  }
+  .p-dialog-content{
+    padding:0 1rem;
+  }
+
+  .card{
+    border-radius:10px;
+    cursor:default;
+  }
+
+  .scrollable--300{
+    height:230px;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+
+  .scrollable--200{
+    height:170px;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+
+  .short{
+    width:300px;
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis;
+  }
+
+  .tooth-buttons button{
+    padding:0.5rem 0.6rem;
+  }
+
+  .compact-input{
+    .p-inputnumber-input{
+      width:55px !important;
+    }
+  }
+  
+  .dialog-tabs .p-button .p-badge{
+     color: white !important;
+    background-color: transparent !important;
+   }
+  .dialog-tabs .p-button-secondary .p-badge{
+    color: #607D8B !important;
+  }
+
+  .fc-col-header-cell-cushion{
+    display: none !important;
+  }
+}

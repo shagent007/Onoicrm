@@ -1,0 +1,104 @@
+.booking{
+  border-radius: 14px;
+  background: #D6EDFC;
+  padding: 16px 18px;
+  .header-booking{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .time-booking{
+      border-radius: 12px;
+      background: #FFF;
+      padding: 5px 10px !important;
+    }
+    .time-description{
+      color: #283150;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+    }
+  }
+}
+.booking-description{
+  color: rgba(40, 49, 80, 0.50);
+  font-family: 'Inter', serif;
+  font-size: 10px !important;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.1px;
+}
+.booking-description--small{
+  font-size: 10px !important;
+  text-align: end;
+  white-space: nowrap;
+}
+.booking-caption{
+  color: #283150;
+  font-family: 'Inter', serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.booking-caption--short {
+  max-width: 70% !important;
+}
+.booking-caption--booking-caption-big {
+  font-size: 20px
+}
+.booking-caption--comment{
+  width: 100%;
+  //font-size: 10px !important;
+  //overflow: hidden;
+  //text-overflow: ellipsis;
+  //max-height: 3em; /* Максимальная высота, соответствующая трем строкам текста */
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+.booking-connection{
+  color: #1479FF;
+  font-family: 'Inter', serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.1px;
+}
+
+.filter-select--record-armchair{
+  width: fit-content !important;
+  padding: 5px 10px !important;
+  font-size: 10px !important;
+}
+
+.filter-select--profile {
+  background: #1479ff;
+  color: white;
+}
+
+.booking--booking-in-progress {
+  background: #CEFFC6;
+}
+
+.grid {
+  .col {
+    flex-grow: 0;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .vc-container {
+    padding: 10px 10px;
+  }
+  .vc-pane-container .vc-day:not(.in-prev-month) {
+    min-width: 100%;
+    min-height: 100%;
+  }
+}

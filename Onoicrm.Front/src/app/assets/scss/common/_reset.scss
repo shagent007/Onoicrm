@@ -1,0 +1,57 @@
+@import "../abstract/vars";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #F5F6F8;
+  height: 100%;
+}
+
+html{
+  background-color:#E8F2FF !important;
+  height:100% !important;
+}
+
+.p-treenode-label {
+  width: 100%;
+}
+* {
+  ::-webkit-scrollbar {
+    border-radius: 9px;
+    background: transparent;
+    padding: 0px 5px;
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track{
+    background: #7E92A2;
+    border:  2px solid #f2f7fd;
+    border-radius: 9px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--grey-90, #526477);
+    border-radius: 9px;
+    cursor: pointer !important;
+  }
+}
+body::-webkit-scrollbar {
+  width: 7px;
+}
+button {
+  border: none;
+  outline: none;
+  background-color: #1479ff;
+  cursor: pointer;
+  color: #fff;
+}
+
+
+.p-divider.p-divider-horizontal:before {
+  border-top: 1px #7E92A2;
+}
+.no-scroll-bar::-webkit-scrollbar {
+  display: none;
+}

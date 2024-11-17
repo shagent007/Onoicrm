@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onoicrm.Api", "Onoicrm.Api\Onoicrm.Api.csproj", "{9B40541C-D9E2-4968-86F7-A2EAB406C445}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onoicrm.DataContext", "Onoicrm.DataContext\Onoicrm.DataContext.csproj", "{D0450DEB-9609-49C9-8C7E-E9C71003F22E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onoicrm.Domain", "Onoicrm.Domain\Onoicrm.Domain.csproj", "{DBBF16D0-BCC9-47B3-8039-30B579CAA8DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B40541C-D9E2-4968-86F7-A2EAB406C445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B40541C-D9E2-4968-86F7-A2EAB406C445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B40541C-D9E2-4968-86F7-A2EAB406C445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B40541C-D9E2-4968-86F7-A2EAB406C445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0450DEB-9609-49C9-8C7E-E9C71003F22E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0450DEB-9609-49C9-8C7E-E9C71003F22E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0450DEB-9609-49C9-8C7E-E9C71003F22E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0450DEB-9609-49C9-8C7E-E9C71003F22E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBBF16D0-BCC9-47B3-8039-30B579CAA8DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBBF16D0-BCC9-47B3-8039-30B579CAA8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBBF16D0-BCC9-47B3-8039-30B579CAA8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBBF16D0-BCC9-47B3-8039-30B579CAA8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

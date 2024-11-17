@@ -1,0 +1,34 @@
+@import "../fonts/gilroy/stylesheet.css";
+@import "../fonts/SFPro/stylesheet.css";
+@import "common/typography";
+@import "common/reset";
+@import "components/card";
+@import "components/base-table";
+@import "components/data-list";
+@import "components/tooth";
+@import "components/time-slot";
+@import "components/search-field";
+@import "components/button";
+@import "components/dropdown";
+@import "components/editor-dialog";
+@import "components/patient-datatable";
+@import "components/dialog";
+@import "components/price-input";
+@import "components/compact-tree";
+@import "components/userProfile";
+@import "components/booking";
+@import "components/booking-spreadsheet";
+@import "components/booking-schedule";
+@import "components/booking-report-dialog";
+@import "components/booking-dialog";
+@import "components/channel";
+@import "components/patient-tab-view";
+@import "components/payment-dialog";
+@import "components/paginator";
+
+@import "overrides/reset";
+
+@import "layouts/index";
+
+
+@import "pages/index";

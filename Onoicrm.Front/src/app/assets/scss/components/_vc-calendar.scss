@@ -1,0 +1,224 @@
+.calendar-no-border .vc-bordered {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(199, 217, 241, 0.7);
+}
+.vc-container {
+  padding: 10px 5px;
+}
+.vc-weekday{
+  padding: 0 !important;
+  margin: 20px 0 12px !important;
+  color: #677995 !important;
+}
+.vc-pane-container {
+  width: 100% !important;
+
+  .vc-day:not(.in-prev-month):has(.vc-focus:focus-within, .vc-highlight-content-solid){
+    border: none !important;
+    overflow: hidden;
+    color: white;
+  }
+
+  .vc-day:not(.in-prev-month) {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 7px;
+    margin: 0;
+    min-width: 20px;
+    min-height: 20px;
+    background: #ffffff;
+    &:hover{
+      background: #A6CBFF;
+    }
+    &:hover .vc-day-content{
+      color: #ffffff !important;
+    }
+    .vc-day-content {
+      width: 100%;
+      font-family: "Inter", serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+      letter-spacing: -0.025em;
+      color: #101e44;
+      border: none;
+    }
+    .vc-day-content:hover {
+      background-color: transparent;
+    }
+
+    &:has(.vc-focus:focus-within, .vc-highlight-content-solid) {
+      border: none;
+      background: #101E44 !important;
+    }
+
+    &.weekday-position-7,
+    &.weekday-position-6 {
+      border: none;
+    }
+    //////////////////////////////////////////////////////////////////////
+
+    .vc-highlight-bg-outline, .vc-highlight-bg-none {
+       border: 0 solid;
+    }
+
+    .vc-pane-container .vc-day:not(.in-prev-month) .vc-highlight.vc-highlight-base-end {
+      background: #c7d9f1 !important;
+    }
+
+    .vc-highlight-bg-light {
+       background-color: #A6CBFF;
+       border-radius: 8px !important;
+    }
+    .vc-highlight-bg-solid {
+      width: 0 !important;
+      height: 0 !important;
+      background-color: black !important;
+      border-radius: var(--vc-rounded-full);
+      &:hover.vc-highlight{
+        background: #0aa9f2 !important;
+      }
+    }
+    //////////////////////////////////////////////////////////////////////////////
+
+
+    .vc-highlight.vc-highlight-base-start{
+      height: 100%;
+      border: none
+    }
+    .vc-highlight.vc-highlight-base-end{
+      height: 100%;
+    }
+
+    .vc-light.vc-attr, .vc-light .vc-attr{
+      --vc-highlight-light-bg: var(--vc-accent-200);
+
+    }
+
+    .vc-highlight.vc-highlight-base-middle{
+      height: 100%;
+    }
+  }
+
+  button {
+    background-color: transparent !important;
+  }
+  .in-next-month .vc-focusable {
+    opacity: 1 !important;
+    color: #00000047 !important;
+    pointer-events: none;
+    background: none !important;
+    .is-not-in-month{
+      opacity: 1 !important;
+      color: #00000047;
+    }
+  }
+
+  .vc-title {
+    text-transform: capitalize;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #2b568f;
+  }
+
+  .vc-focus:focus-within,
+  .vc-highlight-content-solid {
+    box-shadow: none;
+    background: #101E44 !important;
+    color: white !important;
+    border-radius: 6px;
+  }
+}
+.vc-pane-container .vc-day:not(.in-prev-month) .vc-highlight.vc-highlight-base-start{
+  background: #101E44 !important;
+  width: 100% !important;
+}
+.vc-pane-container .vc-day:not(.in-prev-month) .vc-highlight.vc-highlight-base-end{
+  width: 100% !important;
+  background: #101E44 !important;
+  border-radius: 6px;
+  &:hover{
+    border-radius: 10px !important;
+  }
+}
+.vc-pane-container .vc-focus:focus-within, .vc-pane-container .vc-highlight-content-solid{
+  height: 90%;
+}
+.vc-popover-content button,
+.vc-popover-content button.is-active {
+  background-color: #A6CBFF !important;
+  color: #333;
+}
+.vc-pane-container button.v-calendar-footer-button{
+  background-color: #1479ff !important;
+}
+.vc-bordered{
+  border: none;
+  background: #D6EDFC !important;
+  border-radius: 0.75rem !important;
+}
+///////////////////////////////
+.vc-monthly .is-not-in-month {
+  pointer-events: none;
+  background: #ffffff;
+  border-radius: 8px;
+  & * {
+    opacity: 1 !important;
+    color: #00000047 !important;
+  }
+}
+.vc-pane-container .vc-day:not(.in-prev-month) .vc-highlight-bg-outline, .vc-pane-container .vc-day:not(.in-prev-month) .vc-highlight-bg-none{
+  background: transparent !important;
+}
+/////////////////////////////////
+.card--bg-none{
+  background: none !important;
+}
+.card--bg-none:not(.card--no-hover):hover {
+  background-color: transparent !important;
+}
+.armchair{
+  background: #D6EDFC;
+  .p-tag-value{
+    color: #101E44;
+    font-family: 'Inter';
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 10px !important;
+    padding: 10px 20px;
+    white-space: nowrap;
+    font-style: normal;
+    letter-spacing: -0.17px;
+  }
+}
+.armchair:focus{
+  .p-tag-value{
+    color: #1479FF;
+  }
+}
+.armchair--active{
+  .p-tag-value{
+    color: #1479FF;
+  }
+}
+
+//////////////////////DROPDOWN///////////////////////////////
+.vc-dropdown-caption{
+  color: #283150;
+  font-family: 'Inter', serif;
+  font-size: 16.75px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: -0.419px;
+}
+
+

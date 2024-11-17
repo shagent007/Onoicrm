@@ -1,0 +1,103 @@
+.button--data-list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  padding:0px 20px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+  letter-spacing: -0.01em;
+  @media screen and (max-width:768px){
+    font-size: 7px;
+    padding:0px 10px;
+  }
+}
+
+.service-header-buttons{
+  .p-button-secondary{
+    background:transparent;
+    color: var(--grey-70, #7E92A2);
+    font-family: Gilroy;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    border: none;
+    border-radius: 10px;
+    padding: 2px 10px;
+    transition: 0s;
+
+    &:enabled:focus{
+      box-shadow: none;
+    border: none !important;
+    }
+    &:hover{
+      background: white !important;
+      color: var(--grey-70, #7E92A2) !important;
+    }
+  }
+  .p-button-primary{
+    color: var(--grey-white, #FFF);
+    font-family: Gilroy;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    border: none;
+    border-radius: 10px;
+    padding: 2px 10px;
+    transition: 0s;
+
+    &:focus{
+      box-shadow: none;
+    }
+  }
+}
+
+
+.mobile-patient-btn{
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  border: none;
+
+  color: #526477;
+  font-family: $fontGilroy;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  padding: 10px;
+
+  &__bg-icon{
+    width: 20px;
+    height: 20px;
+    background-color: #1479FF;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i{
+      font-size: 12px;
+      color: #FFF;
+    }
+  }
+}
+
+.p-button.p-button-danger:enabled:focus, .p-buttonset.p-button-danger > .p-button:enabled:focus, .p-splitbutton.p-button-danger > .p-button:enabled:focus{
+  box-shadow: none !important;
+}
+.p-button.p-button-secondary:enabled:focus, .p-buttonset.p-button-secondary > .p-button:enabled:focus, .p-splitbutton.p-button-secondary > .p-button:enabled:focus{
+  box-shadow: none !important;
+}
+.p-button:focus{
+  box-shadow: none !important;
+}
+.p-button{
+  border-radius: 9px !important;
+}
+.p-button-sm{
+  border-radius: 4px !important;
+}

@@ -1,0 +1,25 @@
+.search-field{
+  display: flex;
+  border-radius: 12px;
+  align-items: center;
+  width: 100%;
+}
+.search-field__inner-icon{
+  position:absolute;
+  right:10px;
+  top:50%;
+  width: 32.75px;
+  height: 32.75px;
+  transform: translateY(-50%);
+  border-radius: 5px;
+  background-color: #1479ff;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width:768px){
+    padding: 7px 7px;
+    font-size:13px;
+  }
+}

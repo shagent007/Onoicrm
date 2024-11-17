@@ -1,0 +1,65 @@
+.payment-dialog{
+  .p-dialog-header{
+    background: var(--primary-fon, #F5F6F8);
+    .p-dialog-title{
+      color: var(--primary-black, #000);
+      font-family: $fontGilroy;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 14.5px; /* 103.571% */
+    }
+  }
+  .p-dialog-content{
+    background: var(--primary-fon, #F5F6F8);
+    padding-bottom: 0px;
+  }
+  .p-dialog-footer{
+    background: var(--primary-fon, #F5F6F8);
+  }
+  .card{
+    transition: 0.2s;
+  }
+  .card:hover{
+    background: #c7c7c7 !important;
+  }
+  label{
+    color: var(--grey-90, #526477);
+    font-family: $fontGilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14.5px;
+  }
+  .p-inputtext{
+    border-radius: 5px;
+    border: 1px solid var(--grey-90, #85919f);
+    background: var(--grey-white, #FFF);
+    &:hover{
+      border: 1px solid var(--grey-90, #404f5e);
+    }
+    &:focus{
+      box-shadow:none;
+      border: 1px solid var(--grey-90, #404f5e);
+    }
+  }
+  .active{
+    border: 2px solid #a3a3d0 !important;
+  }
+  .p-invalid{
+    border: 2px solid #da6a6f !important;
+
+  }
+  img{
+    width: 35%;
+    margin-bottom: 10px;
+  }
+  h4{
+    color: var(--grey-90, #526477);
+    font-family: $fontGilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14.5px; /* 103.571% */
+  }
+}

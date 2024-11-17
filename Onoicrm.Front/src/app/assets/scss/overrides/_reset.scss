@@ -1,0 +1,104 @@
+.p-breadcrumb {
+  background: transparent;
+  border: none;
+  padding: 1rem 0;
+}
+
+.p-tree {
+  border: none;
+  border-radius: 10px;
+  height: 100%;
+  .p-tree-container .p-treenode .p-treenode-content {
+    border-radius: 10px;
+    transition: box-shadow 0.2s;
+    padding: 0.5rem;
+  }
+}
+
+.p-tabview {
+  background: #ffffff;
+  border-radius: 11px;
+}
+.p-tabview-nav-content {
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+}
+
+.p-breadcrumb .p-menuitem-separator {
+  margin: 0px 0.75rem;
+  .pi.pi-chevron-right {
+    font-size: 13px;
+  }
+}
+
+.p-breadcrumb .p-breadcrumb-list {
+  @media screen and (max-width: 576px) {
+    font-size: 11px;
+  }
+}
+
+.p-paginator {
+  border-radius: 10px;
+}
+
+.p-menuitem-icon {
+  padding-right: 5px;
+}
+
+.transparent-form .p-inputtext,
+.transparent-form .p-dropdown {
+  background-color: transparent;
+}
+
+.p-input-icon-left .p-inputtext {
+  padding-left: 2.5rem;
+}
+
+.textarea.p-input-icon-left > i,
+.p-input-icon-right > i {
+  position: absolute;
+  top: 1.4em;
+  margin-top: -0.5rem;
+}
+
+.p-float-label > .p-inputwrapper-focus ~ label,
+.p-float-label > .p-inputwrapper-filled ~ label,
+.p-float-label > .p-filled ~ label,
+.p-float-label > .p-inputtext:focus ~ label {
+  left: 0.1rem;
+  color: #6c757d;
+  transition-duration: 0.2s;
+}
+
+.fixed-top{
+  display:flex;
+  justify-content:space-between;
+  background-color: $colorDefault;
+}
+
+.p-disabled,
+.p-disabled * {
+  pointer-events: auto;
+  user-select: none;
+  opacity: 1;
+  cursor: pointer !important;
+  color: #6c757d !important;
+}
+
+@media screen and (max-width: 768px) {
+  .p-breadcrumb {
+    padding: 0.5rem 0;
+  }
+}
+
+.p-toast-top-right{
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 576px) {
+  .p-toast{
+    width:80% !important;
+  }
+}

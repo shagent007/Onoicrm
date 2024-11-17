@@ -1,0 +1,20 @@
+.data-list{
+  &__header{
+    display: flex;
+  }
+
+  &__search-field{
+    flex:1;
+  }
+
+  &__group-title{
+    text-align: left;
+    font-weight: 500;
+    font-size: 16.75px;
+    line-height: 14px;
+    letter-spacing: -0.025em;
+    color: #ABC3E1;
+    padding: 10px 25px;
+    margin-bottom: 20px;
+  }
+}

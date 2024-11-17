@@ -1,0 +1,79 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+      TZ: Europe/Moscow
+
+    volumes:
+      - /app/database/postgres:/var/lib/postgresql/data
+  
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    user: "${UID}:${GID}"
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: qtx5MEDMARKETING
+      TZ: Europe/Moscow
+    ports:
+      - "5050:80"
+    volumes:
+      - /app/database/pgadmin/:/var/lib/pgadmin
+  
+  cms-api:
+    image: mcr.microsoft.com/dotnet/aspnet:8.0
+    working_dir: /var/www
+    container_name: cms-api
+    volumes:
+      - /app/www/api/:/var/www 
+      - /app/database/images/:/var/lib/data/images 
+      - /app/database/files/:/var/lib/data/files 
+      - /app/infrastructure/core/appsettings.json/:/var/www/appsettings.json 
+      - /app/infrastructure/core/wwwroot/:/var/www/wwwroot 
+      - /app/infrastructure/core/Views/:/var/www/Views 
+      - /app/infrastructure/core/Areas/:/var/www/Areas 
+    expose:
+      - 4000
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:4000;
+      - TZ=Europe/Moscow
+    command: ["dotnet", "/var/www/Cms.Api.dll"]
+    restart: unless-stopped
+    
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: webserver
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /app/infrastructure/nginx/:/etc/nginx/conf.d/:ro
+      - /app/infrastructure/certbot/www/:/var/www/certbot/:ro
+      - /app/infrastructure/certbot/conf/:/etc/nginx/ssl/:ro
+      - /app/www/manage/:/var/www/manage/:rw
+    environment:
+      - TZ=Europe/Moscow
+    restart: unless-stopped
+
+  certbot:
+    image: certbot/certbot:latest
+    container_name: certbot
+    volumes:
+      - /app/infrastructure/certbot/www/:/var/www/certbot/:rw
+      - /app/infrastructure/certbot/conf/:/etc/letsencrypt/:rw
+
+networks:
+  default:
+    name: docker-net

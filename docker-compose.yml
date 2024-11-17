@@ -1,0 +1,33 @@
+version: "3.9"
+name: "infrastructure"
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test_db
+    volumes:
+      - ./Database/Postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    volumes:
+      - ./Database/Pgadmin/:/var/lib/pgadmin
+
+networks:
+  default:
+    name: docker-net

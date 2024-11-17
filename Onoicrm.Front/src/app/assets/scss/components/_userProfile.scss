@@ -1,0 +1,39 @@
+.user-profile{
+  display: flex;
+  align-items: center;
+  width: auto;
+  &__box{
+    color: var(--primary-color-text) ;
+    background-color: var(--primary-color) ;
+    padding: 0.25rem ;
+    width: 3rem ;
+    height: 3rem ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px ;
+    box-shadow: 0 0 9px 0 rgba(20, 121, 255, 0.27);
+  }
+
+  &__initials{
+    color: white;
+    font-size: 14px;
+  }
+
+  &__name{
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+  }
+
+  &__profession{
+    color: #9A9A9A;
+    font-size: 12px;
+    white-space:nowrap;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+  }
+}

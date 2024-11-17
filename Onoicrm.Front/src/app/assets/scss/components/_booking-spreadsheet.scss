@@ -1,0 +1,131 @@
+.tabs-container{
+    bottom:0;
+    background: #e8f2ff !important;
+    width: calc(100% - 144px);
+
+    @media screen and (max-width: 992px){
+        width: calc(100% - 32px);
+    }
+}
+.tab--moth-view.p-tabview .p-tabview-nav {
+    background: #f2f7fd;
+}
+.tab--filter-view.p-tabview{
+    background: #e8f2ff !important;
+    border-radius: 0px;
+}
+.tab--filter-view{
+    width: calc(100% - 120px);
+    .p-tabview-panels{
+        display: none;
+    }
+    .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+        border:none;
+    }
+    .p-tabview-nav-content{
+        border-radius: 30px
+    }
+    .p-tabview-nav li .p-tabview-nav-link{
+        padding:0.5rem;
+    }
+    .p-button{
+        border-radius: 12px !important;
+    }
+    .p-button-secondary{
+        font-family: 'SF Pro Display';
+        font-weight: 500;
+        text-align: left;
+        background: #CEEAFF;
+        border: none;
+        color: #1479FF !important;
+        &:hover{
+            background: #CEEAFF !important;
+        }
+    }
+    .p-tabview-nav-btn{
+        height: 80%;
+        top: 5px;
+    }
+    .p-tabview-nav-btn.p-link{
+        box-shadow: none;
+    }
+    .p-tabview-nav-prev{
+        border-top-left-radius: 9px !important;
+        border-bottom-left-radius: 9px !important;
+    }
+    .p-tabview-nav-next{
+        border-top-right-radius: 9px !important;
+        border-bottom-right-radius: 9px !important;
+    }
+
+}
+.tab-change{
+    background: #2DC8A8 !important;
+    border: none;
+}
+.tab--filter-view .p-tabview-nav {
+    background: transparent !important;
+    width: 100% !important;
+    border:none;
+}
+
+.tab--moth-view{
+    .p-tabview-title{
+        text-transform:capitalize;
+    }
+}
+
+.tab--moth-view .p-tabview-nav li .p-tabview-nav-link,
+.tab--moth-view .p-tabview-nav li.p-highlight .p-tabview-nav-link,
+.tab--moth-view .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
+    background: #f2f7fd;
+}
+
+.tab--filter-view .p-tabview-nav li .p-tabview-nav-link,
+.tab--filter-view .p-tabview-nav li.p-highlight .p-tabview-nav-link,
+.tab--filter-view .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
+    background: transparent !important;
+}
+
+.tab--moth-view .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+    box-shadow: none;
+}
+
+.tab--moth-view .p-tabview-panels {
+    display: none;
+}
+.booking-spreadsheet {
+    width:100%;
+    border-collapse: collapse;
+    margin-bottom: 5rem;
+}
+
+
+.booking-spreadsheet td {
+    border: 1px solid #ccc;
+    height:10px;
+    padding:1px;
+    font-size:12px;
+    font-weight:bold;
+
+    user-select: none !important; /* Запрет выделения текста */
+    cursor: default;
+}
+.booking-spreadsheet th,
+.booking-spreadsheet__header{
+    padding: 3px;
+    border: 1px solid #ccc;
+    user-select: none; /* Запрет выделения текста */
+    cursor: default;
+}
+
+.booking-spreadsheet__header{
+    text-align: center;
+}
+
+.booking-spreadsheet__cell--selected {
+    cursor: default; /* Изменение курсора при выборе ячеек */
+}
+.booking-spreadsheet__cell--selectable{
+    min-width: 140px
+}

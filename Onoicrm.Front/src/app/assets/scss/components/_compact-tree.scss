@@ -1,0 +1,50 @@
+.compact-tree{
+  .p-treeselect{
+    border-radius: 9px;
+    border: 1px solid #7E92A2;
+    &:hover{
+      border: 1px solid #7E92A2;
+    }
+    &.p-inputwrapper-focus{
+      box-shadow: none;
+    }
+    .p-treeselect-label{
+      font-family: 'Gilroy';
+      font-weight: 500;
+      text-align: left;
+      color: #092C4C;
+      padding: 10px 8px;
+    }
+  }
+
+  //.p-tree-filter-container{
+  //  display: none;
+  //}
+}
+.p-tree,
+.p-tree .p-tree-container .p-treenode{
+  padding: 0 !important;
+}
+.p-tree .p-tree-container .p-treenode .p-treenode-content {
+  padding: 0.3rem;
+  border-radius:5px;
+}
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-treenode-label b{
+  font-weight:normal;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler{
+  margin:0px;
+}
+
+.p-treenode-leaf > .p-treenode-content .p-tree-toggler{
+  display: none;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:focus {
+  outline: 0 none;
+  outline-offset: 0;
+
+  box-shadow: none;
+}
+
