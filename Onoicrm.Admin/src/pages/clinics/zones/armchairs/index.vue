@@ -8,7 +8,7 @@ import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { StringField } from '../../../../app-form/editors/string/models/StringField';
 import { InputFieldAttribute } from '../../../../app-form/models/InputFieldAttribute';
-import DataList from '../../../../components/data/list.vue';
+import DataList from '@/components/data/list.vue';
 import { useListDataSource } from '../../../../hooks/useListDataSource';
 import { EditorDialogConfig } from '../../../../models/EditorDialogConfig';
 import { EntityMetaInfo } from '../../../../models/EntityMetaInfo/EntityMetaInfo';

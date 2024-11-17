@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import DataList from '../../../../components/data/list.vue';
+import DataList from '@/components/data/list.vue';
 import { DataTableSortEvent } from 'primevue/datatable';
 import { Ref, ref, onMounted } from 'vue';
 import { PasswordField } from '@/app-form/editors/password/models/PasswordField';
