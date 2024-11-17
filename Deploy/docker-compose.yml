@@ -40,9 +40,6 @@ services:
       - /app/database/images/:/var/lib/data/images 
       - /app/database/files/:/var/lib/data/files 
       - /app/infrastructure/core/appsettings.json/:/var/www/appsettings.json 
-      - /app/infrastructure/core/wwwroot/:/var/www/wwwroot 
-      - /app/infrastructure/core/Views/:/var/www/Views 
-      - /app/infrastructure/core/Areas/:/var/www/Areas 
     expose:
       - 4000
     environment:
@@ -62,7 +59,8 @@ services:
       - /app/infrastructure/nginx/:/etc/nginx/conf.d/:ro
       - /app/infrastructure/certbot/www/:/var/www/certbot/:ro
       - /app/infrastructure/certbot/conf/:/etc/nginx/ssl/:ro
-      - /app/www/manage/:/var/www/manage/:rw
+      - /app/www/admin/:/var/www/admin/:rw
+      - /app/www/front/:/var/www/front/:rw
     environment:
       - TZ=Europe/Moscow
     restart: unless-stopped
