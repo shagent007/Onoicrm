@@ -9,7 +9,7 @@
           </h1>
           <p class="login-description">
             <router-link to="">
-              <span>Denttish</span>
+              <span>onoicrm</span>
             </router-link>
             предоставляет возможность эффективного управления расписанием,
             моментальной связи с врачами, персонализированного обслуживания, и
@@ -48,7 +48,7 @@
         <div class="login-social">
           <p class="login-social__subtitle">Мы в соц. сетях</p>
           <div>
-            <a target="_blank" href="https://www.instagram.com/denttish.dev">Instagram</a>
+            <a target="_blank" href="https://www.instagram.com/onoicrm.dev">Instagram</a>
             <a href="#">Tik Tok</a>
             <a href="#" tooltip="не доступно">YouTube</a>
           </div>

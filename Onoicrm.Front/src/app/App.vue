@@ -1,7 +1,7 @@
 <template>
   <metainfo>
     <template #title="{ content }">
-      {{ content ? `${content} | DentTish` : `DentTish` }}
+      {{ content ? `${content} | onoicrm` : `onoicrm` }}
     </template>
   </metainfo>
   <component :is="layout.value">

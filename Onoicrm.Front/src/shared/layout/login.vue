@@ -18,7 +18,7 @@
             />
           </svg>
         </router-link>
-        <p class="login__subtitle">Denttish</p>
+        <p class="login__subtitle">onoicrm</p>
       </div>
       <div class="buttons">
         <Button class="btn-login btn-login--gray" label="Помощь" @click="visible = false" text />

@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 
-export const tokenName = 'denttish-jwt-token';
+export const tokenName = 'onoicrm-jwt-token';
 
 export const isJwtValid = (jwt: string | undefined | null): boolean => {
     if (!jwt || jwt === 'undefined') return false;
