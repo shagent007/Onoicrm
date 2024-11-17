@@ -11,16 +11,16 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import { StringField } from '../../app-form/editors/string/models/StringField';
-import { InputFieldAttribute } from '../../app-form/models/InputFieldAttribute';
-import DataList from '../../components/data/list.vue';
-import { useListDataSource } from '../../hooks/useListDataSource';
-import { EditorDialogConfig } from '../../models/EditorDialogConfig';
-import { EntityMetaInfo } from '../../models/EntityMetaInfo/EntityMetaInfo';
-import { ListConfig } from '../../models/ListConfig';
-import { required } from '../../services/consts';
-import { MemoField } from '../../app-form/editors/memo/models/MemoField';
-import { Symptom } from '../../entities/Symptom';
+import { StringField } from '@/app-form/editors/string/models/StringField';
+import { InputFieldAttribute } from '@/app-form/models/InputFieldAttribute';
+import DataList from '@/components/data/list.vue';
+import { useListDataSource } from '@/hooks/useListDataSource';
+import { EditorDialogConfig } from '@/models/EditorDialogConfig';
+import { EntityMetaInfo } from '@/models/EntityMetaInfo/EntityMetaInfo';
+import { ListConfig } from '@/models/ListConfig';
+import { required } from '@/services/consts';
+import { MemoField } from '@/app-form/editors/memo/models/MemoField';
+import { Symptom } from '@/entities/Symptom';
 const dataSource = useListDataSource(new ListConfig({ className: 'symptom' }));
 const loaded = ref<boolean>(false);
 const breadcrumbs = [

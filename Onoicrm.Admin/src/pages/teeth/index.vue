@@ -11,27 +11,17 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import { StringField } from '../../app-form/editors/string/models/StringField';
-import { InputFieldAttribute } from '../../app-form/models/InputFieldAttribute';
-import DataList from '../../components/data/list.vue';
-import { Clinic } from '../../entities/Clinic';
-import { useListDataSource } from '../../hooks/useListDataSource';
-import { EditorDialogConfig } from '../../models/EditorDialogConfig';
-import { EntitityPropertyEditor } from '../../models/EntityMetaInfo/EntitityPropertyEditor';
-import { EntitityPropertyType } from '../../models/EntityMetaInfo/EntitityPropertyType';
-import { EntityMetaInfo } from '../../models/EntityMetaInfo/EntityMetaInfo';
-import { EntityPropertyInfo } from '../../models/EntityMetaInfo/EntityPropertyInfo';
-import { ListConfig } from '../../models/ListConfig';
-import { required } from '../../services/consts';
-import { DateFieldAttribute } from '../../app-form/editors/date/models/DateFieldAttribute';
-import { DateField } from '../../app-form/editors/date/models/DateField';
-import moment from "moment"
-import { SelectField } from '../../app-form/editors/select/models/SelectField';
-import { TreeDataSourceConfig, useTreeDataSource } from '../../hooks/useTreeDataSource';
-import { TreeSelectField } from '../../app-form/editors/tree-select/models/TreeSelectField';
-import { Tooth } from '../../entities/Tooth';
-import { MemoField } from '../../app-form/editors/memo/models/MemoField';
-import { NumberField } from '../../app-form/editors/Number/models/NumberField';
+import { StringField } from '@/app-form/editors/string/models/StringField';
+import { InputFieldAttribute } from '@/app-form/models/InputFieldAttribute';
+import DataList from '@/components/data/list.vue';
+import { useListDataSource } from '@/hooks/useListDataSource';
+import { EditorDialogConfig } from '@/models/EditorDialogConfig';
+import { EntityMetaInfo } from '@/models/EntityMetaInfo/EntityMetaInfo';
+import { ListConfig } from '@/models/ListConfig';
+import { required } from '@/services/consts';
+import { Tooth } from '@/entities/Tooth';
+import { MemoField } from '@/app-form/editors/memo/models/MemoField';
+import { NumberField } from '@/app-form/editors/Number/models/NumberField';
 const dataSource = useListDataSource(new ListConfig({ className: 'tooth' }));
 const loaded = ref<boolean>(false);
 const breadcrumbs = [
