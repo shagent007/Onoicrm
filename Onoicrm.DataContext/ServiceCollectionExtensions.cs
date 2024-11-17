@@ -19,7 +19,7 @@ public static class ServiceCollectionExtensions
         serviceCollection.AddScoped<IFileService, FileService>();
     }
 
-    public static void SetupEfInfrastructure(this IServiceCollection serviceCollection, IConfiguration configuration, string connectionString)
+    public static void SetupEfInfrastructure(this IServiceCollection serviceCollection, IConfiguration configuration)
     {
         serviceCollection.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
@@ -53,7 +53,7 @@ public static class ServiceCollectionExtensions
         
         serviceCollection.AddDbContext<ApplicationDataContext>(options =>
         {
-            options.UseNpgsql(connectionString);
+            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
         });
     }
 }

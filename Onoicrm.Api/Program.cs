@@ -11,16 +11,9 @@ builder.Services.AddControllers().AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     });
 builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options => options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-//asdasd
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-var envFilePath = "/var/www/dev1/api/.env";
-if (builder.Environment.IsDevelopment())
-{
-    envFilePath = Path.Combine(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)!.Parent!.Parent!.Parent!.Parent!.FullName, ".env");
-}
-var connectionString = configuration.GetEnvConnectionString(envFilePath);
-builder.Services.SetupEfInfrastructure(configuration,connectionString);
+builder.Services.SetupEfInfrastructure(configuration);
 builder.Services.RegisterEfServices();
 builder.Services.AddScoped<WappiService>();
 
