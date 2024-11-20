@@ -17,7 +17,7 @@ const config: UserConfig = {
     port: 3030,
     proxy: {
       "/api/v1": {
-        target: "http://localhost:5180",
+        target: "https://onoicrm.com",
         changeOrigin: true,
         rewrite: (path) => path.replace("/^/api/v1", ""),
       },

@@ -3,8 +3,9 @@
     :visible="visible"
     @update:visible="(value) => (!value ? reset() : {})"
     modal
+    :class="{'p-dialog-maximized':!maximizable}"
     class="booking-report-dialog"
-    :style="{ width: '50vw', background: '#F5F6F8' }"
+    :style="{ width: '70vw', background: '#F5F6F8' }"
   >
     <template #header>
       <div class="flex justify-content-between align-items-center flex-1">
@@ -13,7 +14,8 @@
           <p>{{ moment().format("DD.MM.YYYY") }}</p>
         </div>
 
-        <div class="tooth-buttons">
+        <Button @click="visible = false" class="flex md:hidden" icon="pi pi-times" />
+        <div class="tooth-buttons  hidden md:block">
           <Button
             class="mr-2"
             :outlined="selectedBookingTooth !== null"
@@ -31,14 +33,30 @@
         </div>
       </div>
     </template>
+    <div class="tooth-buttons mb-3 block md:hidden">
+      <Button
+          class="mr-2"
+          :outlined="selectedBookingTooth !== null"
+          @click="selectedBookingTooth = null"
+          label="Все"
+      />
+      <Button
+          v-for="bt in bookingTeeth"
+          :key="bt.id"
+          class="mr-2"
+          @click="selectedBookingTooth = bt"
+          :outlined="selectedBookingTooth?.toothId != bt.toothId"
+          :label="toothStore.findItem(bt.toothId)?.position?.toString()"
+      />
+    </div>
     <div class="grid">
       <div class="col-12">
-        <div style="height: 200px" class="card block p-3">
-          <div class="scrollable--200">
+        <div class="card block p-3">
+          <div>
             <DataTable
               scrollable
               scrollHeight="250px"
-              class="p-datatable-sm p-datatable-hoverable-rows"
+              class="hidden md:block p-datatable-sm p-datatable-hoverable-rows"
               :value="implementedServices"
             >
               <Column style="width: 60px" field="code" header="Код">
@@ -69,16 +87,51 @@
                 </template>
               </Column>
             </DataTable>
+            <div
+                v-for="item in implementedServices"
+                class="card block md:hidden flex-column p-1 mb-3 indent-table"
+            >
+              <div class="flex  mb-2 align-items-center justify-content-between w-full">
+                <h6 class="mobile-card-caption">
+                  {{ item.caption }}
+                </h6>
+              </div>
+              <div class="w-full">
+                <div class="grid">
+                  <div class="col-3">
+                    <p class="mobile-card-caption text-sm font-normal">
+                      {{ item.code }}
+                    </p>
+                  </div>
+                  <div class="col-3">
+                    <p class="mobile-card-caption text-sm font-normal">
+                      {{ item.price }}
+                    </p>
+                  </div>
+                  <div class="col-3">
+                    <p class="mobile-card-caption text-sm font-normal">
+                      {{item?.count }}
+                    </p>
+                  </div>
+                  <div class="col-3">
+                    <p class="mobile-card-caption text-sm font-normal">
+                      {{ calculateTotal(item) }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
       <div class="col-12">
-        <div class="flex align-items-center justify-content-end">
-          <div class="flex mr-5">
+        <div class="details">
+          <div class="flex">
             <div class="mr-1">Сумма:</div>
             <div>{{ serviceSum }} c</div>
           </div>
-          <div class="flex mr-5">
+          <div class="flex">
             <div class="mr-1">Скидка:</div>
             <div>{{ discountSum }} c</div>
           </div>
@@ -89,10 +142,10 @@
         </div>
       </div>
       <div v-if="selectedBookingTooth" :class="files.length > 0 ? 'col-5' : 'col-12'" class=" pb-0 h-full">
-        <div style="height: 250px" class="card block p-3">
+        <div style="height: 250px" class="card scrollable--200 block p-3">
           <h4 class="mb-0">Каналы</h4>
           <divider style="margin: 12px 0" />
-          <div v-if="selectedBookingTooth" class="scrollable--200">
+          <div v-if="selectedBookingTooth" >
             <div
               v-for="channel in selectedBookingTooth.channels"
               :key="channel.channelId"
@@ -159,32 +212,22 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref } from "vue";
-import { useClinicStore } from "~/modules/clinic/stores/useClinicStore";
+import { onMounted, ref} from "vue";
 import { computed } from "vue";
 import { useToothStore } from "~/modules/tooth";
 import moment from "moment";
 import { Booking } from "~/modules/booking";
 import { DiscountType } from "~/modules/booking/entities/Booking";
 import FileList from "~/modules/files/components/file-list.vue";
-import { defaultConfirm, defaultMessage, IMessage, TConfirm } from "~/shared";
-import { FilterMatchMode } from "primevue/api";
 import _ from "lodash";
 
 const toothStore = useToothStore();
-const clinicStore = useClinicStore();
-const message = inject<IMessage>("message", defaultMessage);
-const confirm = inject<TConfirm>("confirm", defaultConfirm);
 const booking = ref<Booking | any>();
 const selectedBookingTooth = ref<any>(null);
 const useLabaratory = ref(false)
-
-const loaded = ref<boolean>(false);
+const maximizable = ref(false);
 const visible = ref<boolean>(false);
 const resolve = ref<(model: any) => any>();
-const filters = ref({
-  global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-});
 
 const bookingTeeth = computed(() => booking.value?.bookingTeeth);
 
@@ -270,15 +313,39 @@ const reset = () => {
   selectedBookingTooth.value = null;
   resolve.value!(null);
 };
-const submit = async () => {
-  visible.value = false;
 
-  resolve.value!(null);
-
-  booking.value = null;
-  selectedBookingTooth.value = null;
-  visible.value = false;
+const handleResize = () => {
+  maximizable.value = window.innerWidth > 768;
 };
+
+onMounted(async () => {
+  handleResize();
+  window.addEventListener('resize', handleResize);
+});
 
 defineExpose({ open });
 </script>
+
+
+<style>
+.details{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  .flex:not(:last-child){
+    margin-right: 2rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .details{
+    flex-direction: column;
+    align-items: flex-end;
+    .flex:not(:last-child){
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+}
+</style>

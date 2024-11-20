@@ -532,7 +532,6 @@
         </div>
       </div>
     </template>
-
     <div v-else>
       <PatientCard
         :patient-data-source="patientObjectDataSource"
@@ -542,7 +541,6 @@
         :is-fixed-card="false"
       />
     </div>
-
     <template #footer>
       <div class="hidden md:flex w-full grid">
         <div class="col-8 py-0 flex align-items-center justify-content-between">
@@ -1397,8 +1395,6 @@ const handleResize = () => {
   maximizable.value = window.innerWidth > 768;
 };
 
-defineExpose({open});
-
 onMounted(async () => {
   handleResize();
   window.addEventListener('resize', handleResize);
@@ -1409,6 +1405,10 @@ onMounted(async () => {
   expandedKeys.value = {...expandedKeys.value};
   selectedKey.value = {[rootId]: true};
 });
+
+defineExpose({open});
+
+
 </script>
 
 
