@@ -222,23 +222,6 @@ public class BookingController : PublicObjectController<Booking>
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles =$"{UserRoles.SystemAdministrator}, {UserRoles.Director}, {UserRoles.SiteAdministrator}, {UserRoles.Administrator}, {UserRoles.Dentist}")]
     public override async Task<IActionResult> Add(Booking model) => await ExecuteRequest(async () =>
     {
-        var group = await Context.Set<BookingGroup>().FirstOrDefaultAsync(bg => bg.ClinicId == model.ClinicId && bg.PatientId == model.PatientId && bg.StateId == StateNames.Activated);
-        
-        if (group == null)
-        {
-            group = new BookingGroup
-            {
-                ClinicId = model.ClinicId,
-                PatientId = model.PatientId,
-                StateId = StateNames.Activated,
-                StartDate = model.DateTimeStart
-            };
-        
-            Context.Set<BookingGroup>().Add(group);
-            await Context.SaveChangesAsync();
-        }
-        
-        model.BookingGroupId = group.Id;
         if(model.PatientId != null)
         {
             model.Patient = null;
@@ -343,7 +326,6 @@ public class BookingController : PublicObjectController<Booking>
             case "doctorId": return result.Where(ups => ups.DoctorId == filter.Value.GetInt64());
             case "armchairId": return result.Where(ups => ups.ArmchairId == filter.Value.GetInt64());
             case "stateId": return result.Where(ups => ups.StateId == filter.Value.GetInt64());
-            case "groupId": return result.Where(ups => ups.BookingGroupId == filter.Value.GetInt64());
             case "dateTime":
             {
                 var dateTime = filter.TryParseDateTimeOffset();

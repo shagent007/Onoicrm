@@ -31,9 +31,6 @@ public class Booking : Entity
     public TreatmentPlan? TreatmentPlan { get; set; }
     public long Discount { get; set; }
     public DiscountType DiscountType { get; set; }
-    public long? BookingGroupId { get; set; }
-    public BookingGroup? BookingGroup { get; set; }
-    
     public long? ServiceGroupId { get; set; }
     public ServiceGroup? ServiceGroup { get; set; }
     public ICollection<BookingFile> Files { get; set; } = new List<BookingFile>();

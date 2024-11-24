@@ -41,12 +41,7 @@ public class PatientController :  ReadOnlyObjectController<Patient>
             var bookings = await Context.Set<Booking>()
                 .Include(b => b.Doctor)
                 .Include(b => b.BookingTeeth)
-                .Where(b => 
-                    b.ClinicId == clinicId && b.PatientId == id
-                   &&
-                   Context.Set<BookingGroup>().Any(bg => bg.Id == groupId && b.BookingGroupId == bg.Id)
-                )
-                
+                .Where(b => b.ClinicId == clinicId && b.PatientId == id)
                 .ToListAsync();
             
 
@@ -75,7 +70,6 @@ public class PatientController :  ReadOnlyObjectController<Patient>
                         Date=booking.DateTimeStart,
                         booking.Discount,
                         booking.DiscountType,
-                        booking.BookingGroupId,
                         Total = booking.GetTotal(s.Sum),
                         booking.Doctor,
                         booking.BookingTeeth
@@ -126,7 +120,6 @@ public class PatientController :  ReadOnlyObjectController<Patient>
                         Date=booking.DateTimeStart,
                         booking.Discount,
                         booking.DiscountType,
-                        booking.BookingGroupId,
                         Total = booking.GetTotal(s.Sum),
                         booking.Doctor,
                         booking.BookingTeeth

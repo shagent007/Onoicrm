@@ -10,8 +10,6 @@ public class Payment : Entity
     public UserProfile? Profile { get; set; }
     public long? PatientId { get; set; }
     public Patient? Patient { get; set; }
-    public long? BookingGroupId { get; set; }
-    public BookingGroup? BookingGroup { get; set; }
     public string Method { get; set; }
     public long? ClinicId { get; set; }
     public Clinic? Clinic { get; set; }

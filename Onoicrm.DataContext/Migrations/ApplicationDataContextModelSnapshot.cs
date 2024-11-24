@@ -344,9 +344,6 @@ namespace Onoicrm.DataContext.Migrations
                     b.Property<long?>("ArmchairId")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("BookingGroupId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Caption")
                         .IsRequired()
                         .HasColumnType("text");
@@ -422,8 +419,6 @@ namespace Onoicrm.DataContext.Migrations
 
                     b.HasIndex("ArmchairId");
 
-                    b.HasIndex("BookingGroupId");
-
                     b.HasIndex("ClinicId");
 
                     b.HasIndex("DoctorId");
@@ -487,62 +482,6 @@ namespace Onoicrm.DataContext.Migrations
                     b.HasIndex("ClinicId");
 
                     b.ToTable("BookingСancellationReason", (string)null);
-                });
-
-            modelBuilder.Entity("Onoicrm.Domain.Entities.BookingGroup", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<int>("ClassId")
-                        .HasColumnType("integer");
-
-                    b.Property<long?>("ClinicId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<long?>("CreateUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("LastUpdate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("LastView")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<long?>("PatientId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("integer");
-
-                    b.Property<long>("Priority")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("StateId")
-                        .HasColumnType("integer");
-
-                    b.Property<long?>("UpdateUserId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClinicId");
-
-                    b.HasIndex("PatientId");
-
-                    b.ToTable("BookingGroup", (string)null);
                 });
 
             modelBuilder.Entity("Onoicrm.Domain.Entities.BookingTooth", b =>
@@ -1222,9 +1161,6 @@ namespace Onoicrm.DataContext.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("BookingGroupId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Caption")
                         .HasColumnType("text");
 
@@ -1275,8 +1211,6 @@ namespace Onoicrm.DataContext.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BookingGroupId");
 
                     b.HasIndex("ClinicId");
 
@@ -1915,10 +1849,6 @@ namespace Onoicrm.DataContext.Migrations
                         .WithMany()
                         .HasForeignKey("ArmchairId");
 
-                    b.HasOne("Onoicrm.Domain.Entities.BookingGroup", "BookingGroup")
-                        .WithMany()
-                        .HasForeignKey("BookingGroupId");
-
                     b.HasOne("Onoicrm.Domain.Entities.Clinic", "Clinic")
                         .WithMany()
                         .HasForeignKey("ClinicId")
@@ -1944,8 +1874,6 @@ namespace Onoicrm.DataContext.Migrations
                         .HasForeignKey("TreatmentPlanId");
 
                     b.Navigation("Armchair");
-
-                    b.Navigation("BookingGroup");
 
                     b.Navigation("Clinic");
 
@@ -1983,21 +1911,6 @@ namespace Onoicrm.DataContext.Migrations
                     b.Navigation("CancellationReason");
 
                     b.Navigation("Clinic");
-                });
-
-            modelBuilder.Entity("Onoicrm.Domain.Entities.BookingGroup", b =>
-                {
-                    b.HasOne("Onoicrm.Domain.Entities.Clinic", "Clinic")
-                        .WithMany()
-                        .HasForeignKey("ClinicId");
-
-                    b.HasOne("Onoicrm.Domain.Entities.Patient", "Patient")
-                        .WithMany()
-                        .HasForeignKey("PatientId");
-
-                    b.Navigation("Clinic");
-
-                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("Onoicrm.Domain.Entities.BookingTooth", b =>
@@ -2163,10 +2076,6 @@ namespace Onoicrm.DataContext.Migrations
 
             modelBuilder.Entity("Onoicrm.Domain.Entities.Payment", b =>
                 {
-                    b.HasOne("Onoicrm.Domain.Entities.BookingGroup", "BookingGroup")
-                        .WithMany()
-                        .HasForeignKey("BookingGroupId");
-
                     b.HasOne("Onoicrm.Domain.Entities.Clinic", "Clinic")
                         .WithMany()
                         .HasForeignKey("ClinicId");
@@ -2178,8 +2087,6 @@ namespace Onoicrm.DataContext.Migrations
                     b.HasOne("Onoicrm.Domain.Entities.UserProfile", "Profile")
                         .WithMany()
                         .HasForeignKey("ProfileId");
-
-                    b.Navigation("BookingGroup");
 
                     b.Navigation("Clinic");
 
