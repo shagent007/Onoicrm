@@ -1338,6 +1338,7 @@ const submit = async () => {
       delete implementedService.bookingToothId;
     }
   }
+
   const updateBookingTeeth = booking.value.bookingTeeth.filter?.(
       (bt: any) =>
           !forDeleteBookingTeeth.value.some(
@@ -1365,6 +1366,8 @@ const submit = async () => {
     delete implementedService.id;
     delete implementedService.service;
   }
+
+  forDeleteImplementedServices.value = forDeleteImplementedServices.value.filter(is => isNumber(is.id))
 
   resolve.value!(_.cloneDeep({
     booking: booking.value,

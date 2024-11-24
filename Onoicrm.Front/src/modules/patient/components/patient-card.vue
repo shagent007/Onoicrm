@@ -123,19 +123,14 @@
       </div>
     </TabPanel>
     <TabPanel header="Визиты и оплаты">
-      <Button
-        class="hidden lg:flex absolute top-0 right-0 border-round-md text-sm"
-        label="Завершить"
-        @click="finishBg"
-      />
       <div class="flex align-items-center justify-content-between w-full mb-3">
         <div>
           <ul
             class="flex align-center gap-2 list-none w-full overflow-x-hidden"
           >
-            <li v-for="bg in bookingGroupDataSource.items.value" :key="bg.id">
-              <p @click="updateFilter(bg)" class="tab-patient-date" :class="{'tab-patient-date--active':bg.id == bookingGroup?.id}">
-                {{ moment(bg.startDate).format("DD.MM.YYYY") }}
+            <li>
+              <p  class="tab-patient-date" :class="{'tab-patient-date--active':true}">
+                {{ 2024 }}
               </p>
             </li>
 
@@ -889,12 +884,11 @@
 import moment from "moment/moment";
 import edit from "../icons/edit.svg";
 import {
-  Filter,
   IListDataSource,
   ListDataSourceConfig, UpdateFieldModel,
   useBookingObjectDataSource,
   useListDataSource,
-  useTreeDataSource,
+
 } from "~/modules/data-sources";
 import { ref, computed, inject, onMounted } from "vue";
 import PatientSymptoms from "~/modules/symptom/components/patient-symptoms.vue";
@@ -902,18 +896,14 @@ import { IPatientObjectDataSource } from "~/modules/user-profile/interfaces/IPat
 import { DiscountType } from "~/modules/booking/entities/Booking";
 import BookingReportDialogViewer from "~/modules/booking/components/booking-report-dialog-viewer.vue";
 import { AppForm, FormService, FormServiceConfig } from "~/modules/app-form";
-import { ContextMenu, defaultMessage, IMessage } from "~/shared";
+import { defaultMessage, IMessage } from "~/shared";
 import PatientPaymentDialog from "~/modules/patient/components/patient-payment-dialog.vue";
 import { useToothStore } from "~/modules/tooth";
 import { getPatientUpdateItemForm } from "~/modules/patient/forms/getPatientUpdateItemForm";
-import { useUserProfileGroupDataSource } from "~/modules/user-profile-group/useUserProfileGroupDataSource";
-import { TreeDataSourceConfig } from "~/modules/data-sources/hooks/useTreeDataSource";
-import { useClinicStore } from "~/modules/clinic/stores/useClinicStore";
 import Edit from "../icons/edit.svg";
 import SymptomEditor from "~/modules/symptom/components/symptom-editor.vue";
 import _ from "lodash";
 
-import { useEditorStore } from "~/modules/editor/stores/useEditorDialog";
 import { useWindowSize } from "@vueuse/core";
 import { useAppStore } from "~/modules/app/stores/useAppStore";
 const visible = ref(false);
@@ -932,7 +922,6 @@ const {
 const { width } = useWindowSize();
 const bookingGroup = ref();
 const appStore = useAppStore();
-const clinicStore = useClinicStore();
 const toothStore = useToothStore();
 const bookingViewer = ref();
 const message = inject<IMessage>("message", defaultMessage);
@@ -941,16 +930,6 @@ const objectDataSource = useBookingObjectDataSource();
 const informationSourceDataSource = useListDataSource(
   new ListDataSourceConfig({
     className: "InformationSource",
-  })
-);
-
-const bookingGroupDataSource = useListDataSource(
-  new ListDataSourceConfig({
-    className: "BookingGroup",
-    filter: [
-      new Filter("clinicId", clinicStore.clinic?.id),
-      new Filter("patientId", patientDataSource.model.value.id),
-    ],
   })
 );
 
@@ -1060,26 +1039,12 @@ const formService = new FormService(
   })
 );
 
-const finishBg = async () => {
-  if(!bookingGroup?.value) return;
-
-  await bookingGroupDataSource.updateField(bookingGroup.value.id, [
-    new UpdateFieldModel({
-      fieldName: "stateId",
-      fieldValue: 6
-    })
-  ])
-}
-
 onMounted(async () => {
   await Promise.all([
-    bookingGroupDataSource.get(),
     informationSourceDataSource.get(),
   ]);
 
-  bookingGroup.value = bookingGroupDataSource.items.value.find(bg => bg.stateId == 2);
-  if(bookingGroup?.value) {
-    await patientDataSource.updateInvoices(bookingGroup.value.id);
-  }
+  await patientDataSource.getInvoices();
+
 });
 </script>
