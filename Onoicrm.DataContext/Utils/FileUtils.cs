@@ -47,7 +47,7 @@ public static class FileUtils
         }
         catch (Exception ex)
         {
-            throw new Exception($"Ошибка при удалении файла: {ex.Message}", ex);
+            Console.WriteLine($"Ошибка при удалении файла: {ex.Message}", ex);
         }
     }
     

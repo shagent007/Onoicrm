@@ -49,10 +49,11 @@ public class FileService : IFileService
         if (!base64.IsBase64String()) throw new Exception("Файл повреждён");
         var data = Convert.FromBase64String(base64);
         model.StorageId = Guid.NewGuid().ToString();
+        model.Extension = Path.GetExtension(model.Name);
         var basePath = _configuration.GetValue<string>("FileStorage");
         var folderPath = $"{basePath}/{model.ClassName}";
         FileUtils.CreateFoldersIfNotExist(folderPath);
-        FileUtils.SaveToFileSystem($"{folderPath}/{model.StorageId}.{model.Extension}", data);
+        FileUtils.SaveToFileSystem($"{folderPath}/{model.StorageId}{model.Extension}", data);
         await _dataContext.Set<TFileClass>().AddAsync(model);
         return model;    
     }

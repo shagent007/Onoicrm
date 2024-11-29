@@ -85,6 +85,8 @@ public class BookingController : PublicObjectController<Booking>
                     {
                         await _fileService.Save(file, file.Base64);
                     }
+                    await Context.SaveChangesAsync();
+
                 }
                 if (model.ForAddBookingTeeth.Any())
                 {
