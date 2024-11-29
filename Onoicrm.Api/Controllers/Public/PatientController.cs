@@ -31,57 +31,6 @@ public class PatientController :  ReadOnlyObjectController<Patient>
         var model = await Context.Set<Patient>().SingleAsync(expression);
         return model;
     }
-    
-    [HttpGet("{id:long}/invoice/{clinicId:long}/groupId/{groupId:long}")]
-    public async Task<IActionResult> GetPatientInvoices(long id, long clinicId, long groupId)
-    {
-        return await ExecuteRequest(async () =>
-        {
-
-            var bookings = await Context.Set<Booking>()
-                .Include(b => b.Doctor)
-                .Include(b => b.BookingTeeth)
-                .Where(b => b.ClinicId == clinicId && b.PatientId == id)
-                .ToListAsync();
-            
-
-            var bookingIds = bookings.Select(b => b.Id).ToList();
-            
-            var invoices = await Context.Set<ImplementedService>()
-                .Where(s => bookingIds.Contains(s.BookingId))
-                .Include(s => s.Service)
-                .GroupBy(s => s.BookingId)
-                .Select(s => new
-                {
-                    Id = s.Key,
-                    Sum = s.Select(service => service.Service.Price * service.Count).Sum(),
-                })
-                .ToListAsync();
-
-            var implementedServices = invoices
-                .Select(s =>
-                {
-                    var booking = bookings.First(b => b.Id == s.Id);
-
-                    return new
-                    {
-                        s.Id,
-                        s.Sum,
-                        Date=booking.DateTimeStart,
-                        booking.Discount,
-                        booking.DiscountType,
-                        Total = booking.GetTotal(s.Sum),
-                        booking.Doctor,
-                        booking.BookingTeeth
-                    };
-                })
-                .ToList();
-            
-            
-            return implementedServices;
-        });
-    }
-    
 
     [HttpGet("{id:long}/invoice/{clinicId:long}")]
     public async Task<IActionResult> GetPatientInvoices(long id, long clinicId)

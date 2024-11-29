@@ -25,8 +25,8 @@ public class FileService : IFileService
         await file.CopyToAsync(ms);
         var data = ms.ToArray();
         model.StorageId = Guid.NewGuid().ToString();
-        var basePath = Environment.GetEnvironmentVariable("FileStorage") ?? _configuration.GetValue<string>("FileStorage");
-        var folderPath = $"{basePath}/files/{model.ClassName}";
+        var basePath = _configuration.GetValue<string>("FileStorage");
+        var folderPath = $"{basePath}/{model.ClassName}";
         FileUtils.CreateFoldersIfNotExist(folderPath);
         FileUtils.SaveToFileSystem($"{folderPath}/{model.StorageId}.{model.Extension}", data);
         await _dataContext.Set<TFileClass>().AddAsync(model);
@@ -38,7 +38,7 @@ public class FileService : IFileService
         var file = await _dataContext.Set<TFileClass>().FindAsync(id);
         if (file == null) throw new Exception($"Файл по ID {id}");
         var path =  Environment.GetEnvironmentVariable("FileStorage") ?? _configuration.GetValue<string>("FileStorage");
-        var data = FileUtils.ReadFileBytes($"{path}/files/{file.ClassName}/{file.StorageId}.{file.Extension}");
+        var data = FileUtils.ReadFileBytes($"{path}/{file.ClassName}/{file.StorageId}.{file.Extension}");
         return download 
             ? new FileContentResult(data, "image/jpg") { FileDownloadName = file.Name }
             : new FileContentResult(data, "image/jpg");
@@ -49,8 +49,8 @@ public class FileService : IFileService
         if (!base64.IsBase64String()) throw new Exception("Файл повреждён");
         var data = Convert.FromBase64String(base64);
         model.StorageId = Guid.NewGuid().ToString();
-        var basePath =  Environment.GetEnvironmentVariable("FileStorage") ?? _configuration.GetValue<string>("FileStorage");
-        var folderPath = $"{basePath}/files/{model.ClassName}";
+        var basePath = _configuration.GetValue<string>("FileStorage");
+        var folderPath = $"{basePath}/{model.ClassName}";
         FileUtils.CreateFoldersIfNotExist(folderPath);
         FileUtils.SaveToFileSystem($"{folderPath}/{model.StorageId}.{model.Extension}", data);
         await _dataContext.Set<TFileClass>().AddAsync(model);
@@ -59,8 +59,8 @@ public class FileService : IFileService
 
     public void Delete<TFileClass>(TFileClass model) where TFileClass : AttachedFile, new()
     {
-        var basePath =  Environment.GetEnvironmentVariable("FileStorage") ?? _configuration.GetValue<string>("FileStorage");
-        var filePath = $"{basePath}/files/{model.ClassName}/{model.StorageId}.{model.Extension}";
+        var basePath =  _configuration.GetValue<string>("FileStorage");
+        var filePath = $"{basePath}/{model.ClassName}/{model.StorageId}.{model.Extension}";
         FileUtils.DeleteFile(filePath);
         _dataContext.Set<TFileClass>().Remove(model);
     }
@@ -90,8 +90,8 @@ public class FileService : IFileService
     {
         if (!base64.IsBase64String()) throw new Exception("Файл повреждён");
         var data = Convert.FromBase64String(base64);
-        var basePath =  Environment.GetEnvironmentVariable("FileStorage") ?? _configuration.GetValue<string>("FileStorage");
-        var folderPath = $"{basePath}/files/{model.ClassName}/{model.StorageId}.{model.Extension}";
+        var basePath = _configuration.GetValue<string>("FileStorage");
+        var folderPath = $"{basePath}/{model.ClassName}/{model.StorageId}.{model.Extension}";
         FileUtils.SaveToFileSystem(folderPath, data);
         _dataContext.Set<TFileClass>().Update(model);
         return model;    

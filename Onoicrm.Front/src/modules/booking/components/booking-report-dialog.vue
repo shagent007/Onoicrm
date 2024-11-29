@@ -670,8 +670,6 @@ import {collectTreeBranchParents, findElementInTree, getLastLevelBranches} from 
 import {useRoute} from "vue-router";
 
 const {serviceGroupDatasource} = defineProps<{ serviceGroupDatasource: ITreeDataSource; }>();
-
-const route = useRoute();
 const toothStore = useToothStore();
 const clinicStore = useClinicStore();
 const message = inject<IMessage>("message", defaultMessage);
@@ -1073,7 +1071,6 @@ const addOrDeleteImplementedService = (data: any) => {
   const selected = isSelected(data);
   let defined = forDeleteImplementedServices.value.find((b: any) => b.serviceId == data.id);
 
-  //add
   if (!selected) {
 
     const salary = getSalary(data.links);
@@ -1096,10 +1093,7 @@ const addOrDeleteImplementedService = (data: any) => {
     if (defined) {
       forDeleteImplementedServices.value = forDeleteImplementedServices.value
           .filter((b: any) => b.serviceId !== data.id);
-    } else {
-      forAddImplementedServices.value.push(implementedService);
     }
-
 
     if (selectedBookingTooth.value != null) {
       selectedBookingTooth.value.implementedServices.push({
@@ -1108,8 +1102,8 @@ const addOrDeleteImplementedService = (data: any) => {
       });
       return;
     }
-
     booking.value.implementedServices.push(implementedService);
+    forAddImplementedServices.value.push(implementedService);
     return;
   }
 
@@ -1351,8 +1345,6 @@ const submit = async () => {
       delete bookingTooth.id;
     }
 
-    delete bookingTooth.implementedServices;
-
     bookingTooth.files = bookingTooth.files.filter(
         (f: any) => f.base64 != null,
     );
@@ -1410,10 +1402,7 @@ onMounted(async () => {
 });
 
 defineExpose({open});
-
-
 </script>
-
 
 <style>
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
@@ -1439,5 +1428,3 @@ defineExpose({open});
   }
 }
 </style>
-
-
