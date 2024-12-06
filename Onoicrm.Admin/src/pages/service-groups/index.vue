@@ -1,9 +1,7 @@
 <template>
   <data-list v-if='loaded' :data-source="dataSource" :meta-info="config" :breadcrumbs="breadcrumbs" title="Симптомы">
     <template #name-body="{ item }: {item:Symptom}">
-      <router-link :to="`/symptom/${item.id}`">
-        {{ item.caption }}
-      </router-link>
+      {{ item.caption }}
     </template>
   </data-list>
 </template>
@@ -25,12 +23,12 @@ const dataSource = useListDataSource(new ListConfig({ className: 'symptom' }));
 const loaded = ref<boolean>(false);
 const breadcrumbs = [
   {
-    label: 'Симптомы',
+    label: 'Категории',
   },
 ];
 
 const config = new EntityMetaInfo({
-  clasName: 'clinic',
+  clasName: 'serviceGroup',
   columns: [
     {
       field: 'id',
