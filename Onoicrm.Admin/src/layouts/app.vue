@@ -30,6 +30,11 @@ const config = {
           to: '/clinics',
         },
         {
+          label: 'Категории услуг',
+          icon: 'pi pi-fw pi-folder',
+          to: '/service-groups',
+        },
+        {
           label: 'Симптомы',
           icon: 'pi pi-fw pi-check-square',
           to: '/symptoms',

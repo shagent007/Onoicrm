@@ -69,6 +69,11 @@ const routes = [
     component: () => import('./pages/symptoms/id.vue'),
   },
   {
+    path: '/service-groups',
+    name: 'service-groups',
+    component: () => import('./pages/service-groups/index.vue'),
+  },
+  {
     path: '/teeth',
     name: 'tooth',
     component: () => import('./pages/teeth/index.vue'),

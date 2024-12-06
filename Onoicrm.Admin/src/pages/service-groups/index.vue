@@ -1,6 +1,6 @@
 <template>
   <data-list v-if='loaded' :data-source="dataSource" :meta-info="config" :breadcrumbs="breadcrumbs" title="Симптомы">
-    <template #name-body="{ item }: {item:Symptom}">
+    <template #name-body="{ item }">
       {{ item.caption }}
     </template>
   </data-list>
@@ -19,7 +19,7 @@ import { ListConfig } from '@/models/ListConfig';
 import { required } from '@/services/consts';
 import { MemoField } from '@/app-form/editors/memo/models/MemoField';
 import { Symptom } from '@/entities/Symptom';
-const dataSource = useListDataSource(new ListConfig({ className: 'symptom' }));
+const dataSource = useListDataSource(new ListConfig({ className: 'ServiceGroup' }));
 const loaded = ref<boolean>(false);
 const breadcrumbs = [
   {
@@ -37,7 +37,7 @@ const config = new EntityMetaInfo({
     },
     {
       field: 'caption',
-      header: 'Название клиники',
+      header: 'Название',
       sortable: true,
     },
     {
@@ -47,20 +47,20 @@ const config = new EntityMetaInfo({
     },
   ],
   createItemInfo: new EditorDialogConfig({
-    title: 'Добавить новый симптом',
+    title: 'Добавить новую категорию',
     model: new Symptom(),
     fields: [
       new StringField('caption', {
         attrs: new InputFieldAttribute({
           caption: 'Название',
-          placeholder: 'Введите название клиники',
+          placeholder: 'Введите название категории',
         }),
         validations: [required()],
       }),
       new MemoField('description', {
         attrs: new InputFieldAttribute({
           caption: 'Описание',
-          placeholder: 'Опишите симптом',
+          placeholder: 'Опишите категорию',
         }),
       }),
     ],
@@ -72,14 +72,14 @@ const config = new EntityMetaInfo({
       new StringField('caption', {
         attrs: new InputFieldAttribute({
           caption: 'Название',
-          placeholder: 'Введите название клиники',
+          placeholder: 'Введите название категории',
         }),
         validations: [required()],
       }),
       new MemoField('description', {
         attrs: new InputFieldAttribute({
           caption: 'Описание',
-          placeholder: 'Опишите симптом',
+          placeholder: 'Опишите категорию',
         }),
       }),
     ],

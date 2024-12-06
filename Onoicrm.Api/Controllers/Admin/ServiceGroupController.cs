@@ -11,7 +11,7 @@ using Onoicrm.Domain.Entities;
 
 namespace Onoicrm.Api.Controllers.Admin;
 
-[Route("api/v1/public/[controller]")]
+[Route("api/v1/admin/[controller]")]
 [ApiController]
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = $"{UserRoles.SystemAdministrator}, {UserRoles.Director}, {UserRoles.SiteAdministrator}, {UserRoles.Administrator}, {UserRoles.Dentist}")]
 [ValidateSecurityStamp]
