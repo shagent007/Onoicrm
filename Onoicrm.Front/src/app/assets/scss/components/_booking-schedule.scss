@@ -48,25 +48,36 @@
 
   }
 
-  .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button {
+  .fc.fc-theme-standard  .fc-button-group .fc-button {
     background: transparent;
     border: none;
     color: black;
   }
-  .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-prev-button {
+  .fc.fc-theme-standard .fc-toolbar .fc-button,
+  .fc.fc-theme-standard  .fc-button-group .fc-button {
     background: transparent;
     border: none;
     color: black;
-    border-radius: 10px;
+    border-radius: 10px !important;
     padding: 5px 6px;
     margin-right: 5px;
   }
-  .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-prev-button:hover {
+  .fc.fc-theme-standard .fc-toolbar .fc-button:hover {
     color: gray;
     background: white;
   }
 
-  .fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-next-button {
+  .fc.fc-theme-standard .fc-toolbar-chunk {
+    display: flex;
+  }
+  .fc-prev-button + button,
+  .fc-toolbar-title + button {
+    display: none;
+  }
+
+
+
+  .fc.fc-theme-standard  .fc-button-group .fc-next-button {
     background: transparent;
     border: none;
     color: black;

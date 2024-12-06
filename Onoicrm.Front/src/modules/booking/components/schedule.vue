@@ -479,8 +479,8 @@ const calendarOptions:CalendarOptions = reactive({
     interactionPlugin,
   ],
   headerToolbar: {
-    left: 'prev,next today',
-    center: 'title',
+    left: 'today',
+    center: 'prev, title, next',
     right: 'timeGridWeek,timeGridDay',
   },
   views: {

@@ -17,6 +17,57 @@
           </div>
         </div>
 
+        <div class="grid mini-teeth">
+          <div class="flex bb br gap-2">
+            <span
+              @click="addTooth1(tooth)"
+              class="mini-tooth"
+              :class="{
+                'mini-tooth--exist':isToothExist(tooth),
+                'mini-tooth--active':isToothSelected(tooth)
+              }"
+              v-for="tooth in upperLeftJaw"
+              :key="tooth"
+            >{{tooth}}</span>
+          </div>
+          <div class="flex bb bl gap-2">
+            <span
+              @click="addTooth1(tooth)"
+              class="mini-tooth"
+              :class="{
+                'mini-tooth--exist':isToothExist(tooth),
+                'mini-tooth--active':isToothSelected(tooth)
+              }"
+              v-for="tooth in upperRightJaw"
+              :key="tooth"
+            >{{tooth}}</span>
+          </div>
+          <div class="flex bt br gap-2">
+            <span
+                @click="addTooth1(tooth)"
+                class="mini-tooth"
+                :class="{
+                'mini-tooth--exist':isToothExist(tooth),
+                'mini-tooth--active':isToothSelected(tooth)
+              }"
+                v-for="tooth in lowerLeftJaw"
+                :key="tooth"
+            >{{tooth}}</span>
+          </div>
+          <div class="flex bt bl gap-2">
+            <span
+                @click="addTooth1(tooth)"
+                class="mini-tooth"
+                :class="{
+                'mini-tooth--exist':isToothExist(tooth),
+                'mini-tooth--active':isToothSelected(tooth)
+              }"
+                v-for="tooth in lowerRightJaw"
+                :key="tooth"
+            >{{tooth}}</span>
+          </div>
+        </div>
+
         <div class=" align-items-center tab-buttons mr-4">
           <Button
             label="Отчеты"
@@ -55,182 +106,181 @@
       </div>
     </template>
     <template v-if="!showTab">
-      <div class="hidden md:flex grid">
-
-        <div class="col-12">
-          <div class="flex flex-column align-items-center">
-            <div class="flex gap-2 mb-3">
-              <span
-                  @click="addTooth1(tooth)"
-                  class="mini-tooth"
-                  :class="{
-                    'mini-tooth--exist':isToothExist(tooth),
-                    'mini-tooth--active':isToothSelected(tooth)
-                  }"
-                  v-for="tooth in upperJaw"
-                  :key="tooth"
-              >{{tooth}}</span>
-            </div>
-
-          </div>
-          <TabMenu  @change="test($event)" :model="categories" />
-
+      <div class="hidden booking-report">
+        <div class="group card block p-2">
+          <TabMenu @change="test($event)" :model="categories" />
 
         </div>
 
-        <div class="md:col-12">
-
-
-            <div class="grid">
-              <div class="col-8">
-                <div class="card block p-2">
-                  <DataTable
-                    v-model:filters="filters"
-                    scrollable
-                    scrollHeight="480px"
-                    :globalFilterFields="['code', 'caption', 'price']"
-                    class="p-datatable-sm p-datatable-hoverable-rows"
-                    :value="serviceDataSource.items.value"
-                  >
-                    <template #header>
-                      <div class="compact-input">
-                        <InputText
-                          v-model="filters['global'].value"
-                          class="w-full"
-                          placeholder="Поиск"
-                        />
-                      </div>
-                    </template>
-                    <Column style="width: 60px" field="code" header="Код"/>
-                    <Column field="caption" header="Наименование"/>
-                    <Column field="price" header="Цена"/>
-                    <Column field="actions">
-                      <template #body="{ data }">
-                        <div class="flex justify-content-end">
-                          <Button
-                              size="small"
-                              icon="pi pi-plus"
-                              class="w-auto"
-                              @click="addOrDeleteImplementedService(data)"
-                              v-if="!hasImplementedService(data)"
-                              style="padding: 3px 4px"
-                          />
-                          <div v-else class="flex align-items-center ">
-                            <Button
-                                size="small"
-                                icon="pi pi-minus"
-                                outlined
-                                @click="decrementImplementedServiceCount(data)"
-
-                                severity="secondary"
-                                class="w-auto"
-                                style="padding: 3px 4px"
-                            />
-                            <div class="mx-3">{{getImplementedServiceCount(data)}}</div>
-                            <Button
-                                size="small"
-                                icon="pi pi-plus"
-                                @click="incrementImplementedServiceCount(data)"
-
-                                class="w-auto"
-                                style="padding: 3px 4px"
-                            />
-                          </div>
-                        </div>
-
-                      </template>
-                    </Column>
-                  </DataTable>
-
-                </div>
+        <div class="services card block p-2">
+          <DataTable
+              v-model:filters="filters"
+              scrollable
+              scrollHeight="520px"
+              :globalFilterFields="['code', 'caption', 'price']"
+              class="p-datatable-sm p-datatable-hoverable-rows"
+              :value="serviceDataSource.items.value"
+          >
+            <template #header>
+              <div class="compact-input">
+                <InputText
+                    v-model="filters['global'].value"
+                    class="w-full"
+                    placeholder="Поиск"
+                />
               </div>
-              <div class="col-4">
-                <div style="height:400px;" class="card mb-2 block p-2">
-                  <DataTable
-                    scrollable
-                    scrollHeight="380px"
-                    class="p-datatable-sm p-datatable-hoverable-rows"
-                    :value="implementedServices"
-                >
-                  <Column header="Наименование">
-                    <template #body="{ data }">
-                      <div>{{ data?.caption }} x {{data?.count}}</div>
-                    </template>
-                  </Column>
+            </template>
+            <Column style="width: 60px" field="code" header="Код"/>
+            <Column field="caption" header="Наименование"/>
+            <Column field="price" header="Цена"/>
+            <Column field="actions">
+              <template #body="{ data }">
+                <div class="flex justify-content-end">
+                  <Button
+                      size="small"
+                      icon="pi pi-plus"
+                      class="w-auto"
+                      @click="addOrDeleteImplementedService(data)"
+                      v-if="!hasImplementedService(data)"
+                      style="padding: 3px 4px"
+                  />
+                  <div v-else class="flex align-items-center ">
+                    <Button
+                        size="small"
+                        icon="pi pi-minus"
+                        outlined
+                        @click="decrementImplementedServiceCount(data)"
 
+                        severity="secondary"
+                        class="w-auto"
+                        style="padding: 3px 4px"
+                    />
+                    <div class="mx-3">{{getImplementedServiceCount(data)}}</div>
+                    <Button
+                        size="small"
+                        icon="pi pi-plus"
+                        @click="incrementImplementedServiceCount(data)"
 
-                  <Column  style="width: 80px"  header="Cумма">
-                    <template #body="{ data }">
-                      <div>{{ data?.price * data?.count }}</div>
-                    </template>
-                  </Column>
-
-                  <Column  style="width: 30px">
-                    <template #body="{ data }">
-                      <i @click="removeImplementedService(data)" class="pi pi-trash text-red-300 cursor-pointer"></i>
-                    </template>
-                  </Column>
-                </DataTable>
-                </div>
-
-                <div class="card block p-2">
-                  <div class="flex align-items-start justify-content-between pr-7">
-                    <div class="flex justify-content-end">
-                      <span class="mr-1 align-self-center">Скидка:</span>
-                      <div class="compact-input">
-                        <InputNumber
-                            class="mr-2"
-                            :input-style="{ width: '30px' }"
-                            v-model="booking!.discount"
-                        />
-                      </div>
-
-                      <Button
-                          size="small"
-                          @click="booking.discountType = DiscountType.Percent"
-                          :outlined="booking.discountType !== DiscountType.Percent"
-                          icon="pi pi-percentage"
-                          style="border-radius: 3px"
-                          class="mr-2 py-0"
-                      />
-                      <Button
-                          size="small"
-                          @click="booking.discountType = DiscountType.Money"
-                          :outlined="booking.discountType !== DiscountType.Money"
-                          icon="pi pi-dollar"
-                          style="border-radius: 3px"
-                          class="px-2 py-0"
-                      />
-                    </div>
-
-                    <div class="flex justify-content-end">
-                      <table>
-                        <tr>
-                          <td class="text-right pr-3">Сумма:</td>
-                          <td>{{ serviceSum }} c</td>
-                        </tr>
-                        <tr>
-                          <td class="text-right pr-3">Скидка:</td>
-                          <td>{{ discountSum }} c</td>
-                        </tr>
-                        <tr>
-                          <td class="text-right pr-3">Итого:</td>
-                          <td style="font-weight: 500">{{ resultSum }} c</td>
-                        </tr>
-                      </table>
-                    </div>
+                        class="w-auto"
+                        style="padding: 3px 4px"
+                    />
                   </div>
                 </div>
 
+              </template>
+            </Column>
+          </DataTable>
+        </div>
 
-                <div class="mt-2 hidden md:flex w-full justify-content-end">
-                  <Button @click="reset()" class="p-button-secondary mr-2" label="Отмена"/>
-                  <Button @click="submit()" class="mr-0" label="Сохранить"/>
+        <div class="channels card block p-2">
+          <h4 class="mb-0">Каналы</h4>
+          <divider style="margin: 12px 0"/>
+          <div
+              v-if="selectedBookingTooth"
+              style="height: 500px"
+              class="scrollable"
+          >
+            <div
+                v-for="channel in selectedBookingTooth.channels"
+                :key="channel.channelId"
+                class="channel mb-4"
+            >
+              <div class="channel__caption">{{ getChannelCaption(channel) }}</div>
+              <div class="channel__card">
+                <div class="channel-item">
+                  <div class="channel-item__caption">МК:</div>
+                  <InputNumber v-model="channel.masterCon" suffix="мм"/>
+                </div>
+                <div class="channel-item">
+                  <div class="channel-item__caption">МФ:</div>
+                  <InputNumber v-model="channel.masterFile" suffix="мм"/>
                 </div>
               </div>
             </div>
-
+          </div>
+          <div class="text-center h-full pt-4" v-else>
+            Чтобы увидеть каналы выберите зуб
+          </div>
         </div>
+
+        <div class="implementedServices card block p-2">
+          <DataTable
+            scrollable
+            scrollHeight="420px"
+            class="p-datatable-sm p-datatable-hoverable-rows"
+            :value="implementedServices"
+          >
+            <Column header="Наименование">
+              <template #body="{ data }">
+                <div>{{ data?.caption }} x {{data?.count}}</div>
+              </template>
+            </Column>
+            <Column  style="width: 80px"  header="Cумма">
+              <template #body="{ data }">
+                <div>{{ data?.price * data?.count }}</div>
+              </template>
+            </Column>
+            <Column  style="width: 30px">
+              <template #body="{ data }">
+                <i @click="removeImplementedService(data)" class="pi pi-trash text-red-300 cursor-pointer"></i>
+              </template>
+            </Column>
+          </DataTable>
+        </div>
+
+        <div class="check card block p-2">
+          <div class="flex align-items-start justify-content-between">
+            <div class="flex justify-content-end">
+              <span class="mr-1 align-self-center">Скидка:</span>
+              <div class="compact-input">
+                <InputNumber
+                    class="mr-2"
+                    :input-style="{ width: '30px' }"
+                    v-model="booking!.discount"
+                />
+              </div>
+
+              <Button
+                  size="small"
+                  @click="booking.discountType = DiscountType.Percent"
+                  :outlined="booking.discountType !== DiscountType.Percent"
+                  icon="pi pi-percentage"
+                  style="border-radius: 3px"
+                  class="mr-2 py-0"
+              />
+              <Button
+                  size="small"
+                  @click="booking.discountType = DiscountType.Money"
+                  :outlined="booking.discountType !== DiscountType.Money"
+                  icon="pi pi-dollar"
+                  style="border-radius: 3px"
+                  class="px-2 py-0"
+              />
+            </div>
+
+            <div class="flex justify-content-end">
+              <table>
+                <tr>
+                  <td class="text-right pr-3">Сумма:</td>
+                  <td>{{ serviceSum }} c</td>
+                </tr>
+                <tr>
+                  <td class="text-right pr-3">Скидка:</td>
+                  <td>{{ discountSum }} c</td>
+                </tr>
+                <tr>
+                  <td class="text-right pr-3">Итого:</td>
+                  <td style="font-weight: 500">{{ resultSum }} c</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="flex">
+            <Button @click="reset()" class="p-button-secondary mr-2" label="Отмена"/>
+            <Button @click="submit()" class="mr-0" label="Сохранить"/>
+          </div>
+        </div>
+
       </div>
       <div class="block  md:hidden h-full">
         <div class="overflow-x-hidden relative h-full pr-1">
@@ -436,8 +486,6 @@ import moment from "moment";
 import {Booking} from "~/modules/booking";
 import {DiscountType} from "~/modules/booking/entities/Booking";
 import ToothSelector from "~/modules/tooth/components/tooth-selector.vue";
-import FileSelector from "~/modules/files/components/file-selector.vue";
-import FileList from "~/modules/files/components/file-list.vue";
 import {defaultConfirm, defaultMessage, IMessage, TConfirm} from "~/shared";
 import {FilterMatchMode} from "primevue/api";
 import _, {isNumber} from "lodash";
@@ -504,14 +552,22 @@ const filters = ref({
   global: {value: null, matchMode: FilterMatchMode.CONTAINS},
 });
 
-const upperJaw = [
-    //upper
-    18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28,
-    //lower
-  48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38
-
+const upperLeftJaw = [
+  18,17,16,15,14,13,12,11
 ]
 
+const upperRightJaw = [
+  21,22,23,24,25,26,27,28,
+]
+
+const lowerLeftJaw = [
+  48,47,46,45,44,43,42,41
+]
+
+
+const lowerRightJaw = [
+  31,32,33,34,35,36,37,38
+]
 
 
 const patientObjectDataSource = usePatientObjectDataSource();
@@ -1271,15 +1327,44 @@ defineExpose({open});
 </script>
 
 <style>
+
+.bb {
+  border-bottom: 0.5px solid #aaa;
+  padding-bottom: 0.5rem;
+}
+.bt {
+  border-top: 0.5px solid #aaa;
+  padding-top: 0.5rem;
+
+}
+.bl {
+  border-left: 0.5px solid #aaa;
+  padding-left: 0.5rem;
+
+}
+.br {
+  border-right: 0.5px solid #aaa;
+  padding-right: 0.5rem;
+
+}
+
+.mini-teeth{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+}
+
+
 .mini-tooth{
   padding:3px 5px;
-  border:1px dotted #aaa;
-  color:#aaa;
+  border:1px dotted #777;
+  color:#777;
   font-variant-numeric: tabular-nums;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor:pointer;
+  font-size:12px;
 }
 .mini-tooth--exist{
   border:1px dashed #333;
@@ -1307,6 +1392,58 @@ defineExpose({open});
 .booking-report-dialog .p-dialog-content {
   height: 100%;
   position: relative !important;
+}
+
+.booking-report{
+  display: grid;
+  grid-template-areas:
+        "group group group"
+        "services channels implementedServices"
+        "services channels check";
+  grid-template-columns: 3fr 1fr 1.5fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+}
+
+.group {
+  grid-area: group;
+  height:65px;
+
+  .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link{
+    border:none !important;
+  }
+
+  .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus{
+    box-shadow:none !important;
+  }
+
+  .p-tabmenu .p-tabmenu-nav{
+    border: none !important;
+  }
+}
+
+.services {
+  grid-area: services;
+  height:550px;
+
+}
+
+.channels {
+  grid-area: channels;
+}
+
+.implementedServices {
+  grid-area: implementedServices;
+}
+
+.check {
+  grid-area: check;
+}
+
+@media screen and (min-width:768px) {
+  .booking-report{
+    display: grid !important;
+  }
 }
 
 @media screen and (max-width: 768px) {

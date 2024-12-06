@@ -134,7 +134,7 @@ const loginFormService = new FormService(
           cssClass: "mb-3",
           placeholder: "пароль",
         }),
-        validations: [required(), min(8)],
+        validations: [required(), min(6)],
         grid: "col-12 sm:col-9 mb-3",
       }),
       new CustomField("button", {

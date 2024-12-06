@@ -56,6 +56,11 @@
     cursor:default;
   }
 
+  .scrollable{
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+
   .scrollable--300{
     height:230px;
     overflow-x:hidden;
